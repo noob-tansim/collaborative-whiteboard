@@ -1,0 +1,69 @@
+.whiteboard-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.whiteboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.whiteboard-header h3 {
+  margin: 0;
+  font-weight: 500;
+}
+
+.whiteboard-header h3 span {
+  font-weight: 700;
+  color: #007aff;
+}
+
+.connection-status span {
+    font-weight: 600;
+}
+.connection-status .connected {
+    color: #34c759;
+}
+.connection-status .disconnected {
+    color: #d93025;
+}
+
+.btn-logout {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d93025;
+  background-color: #fdeeee;
+  border: 1px solid #d93025;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.main-content {
+  display: flex;
+  gap: 20px;
+  /* Set a height for the main content area */
+  height: calc(100vh - 180px); 
+}
+
+.whiteboard-area {
+  flex: 3;
+  display: flex;
+}
+
+.chat-column {
+  flex: 1;
+  display: flex;
+  /* Make chat component fill the height */
+  height: 100%; 
+  max-height: 700px; /* Max height for canvas + toolbar */
+}

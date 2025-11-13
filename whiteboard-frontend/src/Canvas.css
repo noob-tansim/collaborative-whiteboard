@@ -1,0 +1,89 @@
+.canvas-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.canvas-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid #ccc;
+  border-bottom: none;
+}
+
+.tool-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tool-group label {
+  font-weight: 500;
+}
+
+.canvas-toolbar input[type="color"] {
+  width: 40px;
+  height: 30px;
+  padding: 0;
+  border: none;
+}
+
+.canvas-toolbar input[type="range"] {
+  width: 100px;
+}
+
+.canvas-toolbar button {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.canvas-toolbar button:hover {
+  background-color: #e9e9e9;
+}
+
+.canvas-toolbar .tool-group button {
+  min-width: 60px;
+}
+
+.whiteboard-canvas {
+  background: transparent; /* background now drawn on the canvas */
+  border: 1px solid #ccc;
+  border-radius: 0 0 8px 8px;
+  cursor: crosshair;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.03);
+}
+
+.canvas-stage {
+  position: relative;
+  width: 900px;
+  height: 600px;
+}
+
+.overlay-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 900px;
+  height: 600px;
+  pointer-events: none; /* allow pointer events to pass through to main canvas */
+}
+
+.canvas-toolbar button {
+  position: relative;
+}
+
+.canvas-toolbar button.active {
+  background-color: #007aff;
+  color: #fff;
+  border-color: #007aff;
+}
