@@ -2,6 +2,8 @@ package com.masterwayne.whiteboard_app.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 
 @Data
@@ -18,12 +20,13 @@ public class WhiteboardSession {
     @AttributeOverrides({
             @AttributeOverride(name = "name", column = @Column(name = "manager_name"))
     })
-    private Participant manager;
+    private SessionManager manager;
 
-    @ElementCollection
-    @CollectionTable(name = "session_participants", joinColumns = @JoinColumn(name = "session_id"))
+    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Participant> participants;
 
     @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Channel>  channels;
 }

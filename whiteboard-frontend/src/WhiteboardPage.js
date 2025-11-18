@@ -36,8 +36,10 @@ function WhiteboardPage({ session, onLogout }) {
   // CHANGED: This whole function is updated to use new Client()
   const connect = () => {
     // Create a new Client instance
+    // Use an explicit backend URL when provided via REACT_APP_WS_URL (helpful in dev)
+    const sockJsUrl = process.env.REACT_APP_WS_URL || '/ws';
     stompClient.current = new Client({
-      webSocketFactory: () => new SockJS('/ws'), // Your backend WebSocket endpoint
+      webSocketFactory: () => new SockJS(sockJsUrl), // Your backend WebSocket endpoint
       reconnectDelay: 5000,
       onConnect: onConnected,
       onStompError: onError,

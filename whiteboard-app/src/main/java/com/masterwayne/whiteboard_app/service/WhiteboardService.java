@@ -6,6 +6,7 @@ import com.masterwayne.whiteboard_app.model.DrawPayload;
 import com.masterwayne.whiteboard_app.model.Channel;
 import com.masterwayne.whiteboard_app.model.ChatMessage;
 import com.masterwayne.whiteboard_app.model.Participant;
+import com.masterwayne.whiteboard_app.model.SessionManager;
 import com.masterwayne.whiteboard_app.model.WhiteboardSession;
 import com.masterwayne.whiteboard_app.persistence.PersistenceWorker;
 import com.masterwayne.whiteboard_app.repository.WhiteboardSessionRepository;
@@ -18,9 +19,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import jakarta.annotation.PostConstruct;
+import java.util.List;
+import java.util.ArrayList;
 import jakarta.annotation.PreDestroy;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
 
@@ -94,7 +96,7 @@ public class WhiteboardService {
                 throw SessionException.sessionAlreadyExists(sessionName);
             }
 
-            Participant manager = new Participant();
+            SessionManager manager = new SessionManager();
             manager.setName(managerName);
 
             Channel generalChannel = new Channel();
@@ -131,6 +133,7 @@ public class WhiteboardService {
      * @return the WhiteboardSession with the new participant added
      * @throws SessionException if session not found
      */
+    @Transactional
     public WhiteboardSession joinSession(String sessionName, String userName) throws SessionException {
         try {
             long start = System.currentTimeMillis();
@@ -138,20 +141,35 @@ public class WhiteboardService {
             WhiteboardSession session = sessionRepository.findBySessionName(sessionName)
                     .orElseThrow(() -> SessionException.sessionNotFound(sessionName));
 
-            // Idempotent join: if user already exists, just return session
+            // Eagerly initialize the participants collection while session is open
+            List<Participant> participants = session.getParticipants();
+            if (participants == null) {
+                participants = new ArrayList<>();
+                session.setParticipants(participants);
+            } else {
+                // Force initialization by calling size() on the lazy collection
+                participants.size();
+            }
+
+            // Check if user is the manager or already a participant
             boolean isManager = session.getManager() != null && userName != null &&
                     session.getManager().getName().equalsIgnoreCase(userName);
-            boolean alreadyParticipant = userName != null && session.getParticipants() != null &&
-                    session.getParticipants().stream().anyMatch(p -> userName.equalsIgnoreCase(p.getName()));
+            boolean alreadyParticipant = userName != null && !participants.isEmpty() &&
+                    participants.stream().anyMatch(p -> userName.equalsIgnoreCase(p.getName()));
 
-            if (isManager || alreadyParticipant) {
-                log.debug("User '{}' already in session '{}', returning existing session", userName, sessionName);
+            if (alreadyParticipant) {
+                throw SessionException.userAlreadyInSession(userName, sessionName);
+            }
+            
+            if (isManager) {
+                log.debug("Manager '{}' already in session '{}', returning existing session", userName, sessionName);
                 return session;
             }
 
             Participant newParticipant = new Participant();
             newParticipant.setName(userName);
-            session.getParticipants().add(newParticipant);
+            newParticipant.setSession(session); // Set the back-reference to the session
+            participants.add(newParticipant);
             WhiteboardSession saved = sessionRepository.save(session);
             
             long elapsed = System.currentTimeMillis() - start;
@@ -174,6 +192,7 @@ public class WhiteboardService {
      * @param channelName channel identifier
      * @param payload the draw event (shape)
      */
+    @Transactional
     public void addShape(String sessionName, String channelName, DrawPayload payload) {
         String type = payload.getType();
 

@@ -8,6 +8,8 @@ import com.masterwayne.whiteboard_app.storage.FallbackStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.*;
@@ -35,12 +37,16 @@ public class PersistenceWorker {
     private final ExecutorService executorService;
     private final WhiteboardSessionRepository sessionRepository;
     private final FallbackStorage fallbackStorage;
+    private final TransactionTemplate transactionTemplate;
     private volatile boolean running = false;
 
     @Autowired
-    public PersistenceWorker(WhiteboardSessionRepository sessionRepository, FallbackStorage fallbackStorage) {
+    public PersistenceWorker(WhiteboardSessionRepository sessionRepository,
+                             FallbackStorage fallbackStorage,
+                             PlatformTransactionManager transactionManager) {
         this.sessionRepository = sessionRepository;
         this.fallbackStorage = fallbackStorage;
+        this.transactionTemplate = new TransactionTemplate(transactionManager);
         this.taskQueue = new LinkedBlockingQueue<>(QUEUE_CAPACITY);
         this.executorService = Executors.newSingleThreadExecutor(r -> {
             Thread t = new Thread(r, "WhiteboardPersistenceWorker");
@@ -99,10 +105,23 @@ public class PersistenceWorker {
      */
     private void executePersistenceTask(PersistenceTask task) {
         try {
-            task.execute(sessionRepository);
+            // Ensure the persistence operation runs inside a Spring-managed transaction so
+            // JPA/Hibernate lazy collections (e.g. session.getChannels()) can be initialized
+            // correctly when accessed on the background worker thread.
+            transactionTemplate.execute(status -> {
+                try {
+                    task.execute(sessionRepository);
+                    return null;
+                } catch (Exception e) {
+                    // rethrow as runtime so TransactionTemplate will propagate
+                    throw new RuntimeException(e);
+                }
+            });
+
             logger.debug("Persistence task completed successfully: {}", task.getDescription());
-        } catch (Exception e) {
-            logger.error("Persistence task failed: {}. Attempting fallback storage.", task.getDescription(), e);
+        } catch (RuntimeException e) {
+            Throwable cause = e.getCause() != null ? e.getCause() : e;
+            logger.error("Persistence task failed: {}. Attempting fallback storage.", task.getDescription(), cause);
             // Attempt fallback
             try {
                 task.writeFallback(fallbackStorage);
@@ -110,6 +129,8 @@ public class PersistenceWorker {
             } catch (Exception fallbackEx) {
                 logger.error("Fallback storage also failed for task: {}", task.getDescription(), fallbackEx);
             }
+        } catch (Exception e) {
+            logger.error("Unexpected error executing persistence task: {}", task.getDescription(), e);
         }
     }
 

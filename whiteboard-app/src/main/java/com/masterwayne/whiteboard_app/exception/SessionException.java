@@ -21,6 +21,6 @@ public class SessionException extends WhiteboardException {
     }
 
     public static SessionException userAlreadyInSession(String userName, String sessionName) {
-        return new SessionException("User '" + userName + "' is already in session '" + sessionName + "'.");
+        return new SessionException("User '" + userName + "' is already in the session.");
     }
 }

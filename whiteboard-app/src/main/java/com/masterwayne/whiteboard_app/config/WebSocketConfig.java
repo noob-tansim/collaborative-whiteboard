@@ -23,6 +23,11 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         // This is the line you were missing:
         // It registers "/ws" as the STOMP endpoint and enables SockJS fallback options.
         // This is what your frontend connects to.
-        registry.addEndpoint("/ws").withSockJS();
+        // Allow the CRA dev server origin so SockJS transports (websocket, eventsource, xhr, etc.)
+        // can connect during local development. Use specific origins for safety; in dev you
+        // may also use setAllowedOriginPatterns("*") to allow all origins.
+        registry.addEndpoint("/ws")
+                .setAllowedOriginPatterns("http://localhost:30*", "http://127.0.0.1:30*")
+                .withSockJS();
     }
 }

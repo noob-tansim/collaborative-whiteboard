@@ -1,10 +1,35 @@
 package com.masterwayne.whiteboard_app.model;
 
-import jakarta.persistence.Embeddable;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@Embeddable
+@Entity
+@Table(name = "participants")
+@Getter
+@Setter
 public class Participant {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
+
+    /**
+     * Establishes the many-to-one relationship back to the WhiteboardSession.
+     * - JsonBackReference prevents infinite recursion during JSON serialization.
+     * - FetchType.LAZY is a performance optimization.
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "session_id")
+    @JsonBackReference
+    private WhiteboardSession session;
 }
