@@ -9,11 +9,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Index;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "participants")
+@Table(name = "participants", indexes = {
+    @Index(name = "idx_participant_session", columnList = "session_id")
+})
 @Getter
 @Setter
 public class Participant {

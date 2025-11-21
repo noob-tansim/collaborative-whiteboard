@@ -13,8 +13,10 @@ import com.masterwayne.whiteboard_app.repository.WhiteboardSessionRepository;
 import com.masterwayne.whiteboard_app.storage.FallbackStorage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,29 +27,18 @@ import jakarta.annotation.PreDestroy;
 import java.time.Instant;
 import java.util.Collections;
 import java.util.Optional;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
-/**
- * WhiteboardService orchestrates all whiteboard operations including session management,
- * drawing events, and chat messages. It integrates four key concepts:
- * 
- * 1. Exception Handling: Uses custom typed exceptions (SessionException, PersistenceException)
- *    with proper logging and meaningful error messages.
- * 
- * 2. File I/O: FallbackStorage writes events to JSON Lines files when DB persistence fails,
- *    enabling recovery after DB issues.
- * 
- * 3. Sockets: WebSocket integration is handled by WebSocketController and configured via WebSocketConfig.
- *    This service provides data persistence for events received over sockets.
- * 
- * 4. Threads: PersistenceWorker uses a background thread pool with BlockingQueue for async
- *    event persistence, keeping WebSocket handlers responsive.
- */
 @Service
 public class WhiteboardService {
     private final WhiteboardSessionRepository sessionRepository;
     private final PersistenceWorker persistenceWorker;
     private final FallbackStorage fallbackStorage;
     private final ObjectMapper objectMapper;
+    @Value("${whiteboard.replay.enabled:true}")
+    private boolean replayEnabled;
     private static final Logger log = LoggerFactory.getLogger(WhiteboardService.class);
 
     @Autowired
@@ -62,33 +53,18 @@ public class WhiteboardService {
         this.objectMapper = objectMapper;
     }
 
-    /**
-     * Lifecycle hook: start the background persistence worker.
-     */
     @PostConstruct
     public void init() {
         persistenceWorker.start();
         log.info("WhiteboardService initialized with background persistence worker");
     }
 
-    /**
-     * Lifecycle hook: gracefully shutdown the persistence worker.
-     */
     @PreDestroy
     public void destroy() {
         persistenceWorker.shutdown();
         log.info("WhiteboardService shut down");
     }
 
-    /**
-     * Creates a new whiteboard session with an initial "general" channel.
-     * Throws SessionException if a session with the same name already exists.
-     * 
-     * @param sessionName unique session identifier
-     * @param managerName name of the session creator
-     * @return the newly created WhiteboardSession
-     * @throws SessionException if session already exists
-     */
     public WhiteboardSession createSession(String sessionName, String managerName) throws SessionException {
         try {
             Optional<WhiteboardSession> existingSession = sessionRepository.findBySessionName(sessionName);
@@ -123,35 +99,19 @@ public class WhiteboardService {
         }
     }
 
-    /**
-     * Joins a user to an existing whiteboard session.
-     * Returns the session if the user is already in it (idempotent).
-     * Throws SessionException if the session does not exist.
-     * 
-     * @param sessionName name of the session to join
-     * @param userName name of the user joining
-     * @return the WhiteboardSession with the new participant added
-     * @throws SessionException if session not found
-     */
     @Transactional
     public WhiteboardSession joinSession(String sessionName, String userName) throws SessionException {
         try {
             long start = System.currentTimeMillis();
             
-            WhiteboardSession session = sessionRepository.findBySessionName(sessionName)
-                    .orElseThrow(() -> SessionException.sessionNotFound(sessionName));
+            WhiteboardSession session = loadSessionGraph(sessionName);
 
-            // Eagerly initialize the participants collection while session is open
             List<Participant> participants = session.getParticipants();
             if (participants == null) {
                 participants = new ArrayList<>();
                 session.setParticipants(participants);
-            } else {
-                // Force initialization by calling size() on the lazy collection
-                participants.size();
             }
 
-            // Check if user is the manager or already a participant
             boolean isManager = session.getManager() != null && userName != null &&
                     session.getManager().getName().equalsIgnoreCase(userName);
             boolean alreadyParticipant = userName != null && !participants.isEmpty() &&
@@ -168,7 +128,7 @@ public class WhiteboardService {
 
             Participant newParticipant = new Participant();
             newParticipant.setName(userName);
-            newParticipant.setSession(session); // Set the back-reference to the session
+            newParticipant.setSession(session);
             participants.add(newParticipant);
             WhiteboardSession saved = sessionRepository.save(session);
             
@@ -184,32 +144,21 @@ public class WhiteboardService {
         }
     }
 
-    /**
-     * Handles draw events. Filters out preview events and delegates shape persistence to the background worker.
-     * The actual DB write happens asynchronously via the PersistenceWorker thread.
-     * 
-     * @param sessionName session identifier
-     * @param channelName channel identifier
-     * @param payload the draw event (shape)
-     */
     @Transactional
     public void addShape(String sessionName, String channelName, DrawPayload payload) {
         String type = payload.getType();
 
-        // Skip ephemeral preview events - only persist final shapes
         if (type != null && (type.startsWith("shape-preview") || type.startsWith("line-segment-preview"))) {
             log.trace("Skipping preview event: type={}", type);
             return;
         }
 
-        // Handle clear event immediately
         if ("clear".equals(type)) {
             log.debug("Clear event received for session='{}', channel='{}'", sessionName, channelName);
             clearShapes(sessionName, channelName);
             return;
         }
 
-        // Submit final shape to background worker for async persistence
         log.debug("Submitting shape for async persistence: session='{}', channel='{}', type='{}'",
                 sessionName, channelName, payload.getType());
         
@@ -220,22 +169,11 @@ public class WhiteboardService {
         }
     }
 
-    /**
-     * Clears all shapes in a channel. Submitted to the background worker for async persistence.
-     */
     private void clearShapes(String sessionName, String channelName) {
         try {
-            Optional<WhiteboardSession> sessionOpt = sessionRepository.findBySessionName(sessionName);
-            if (sessionOpt.isEmpty()) {
-                log.warn("Session not found for clear operation: session='{}'", sessionName);
-                return;
-            }
-
-            WhiteboardSession session = sessionOpt.get();
-            var channel = session.getChannels().stream()
-                    .filter(c -> c.getChannelName().equals(channelName))
-                    .findFirst()
-                    .orElse(null);
+            WhiteboardSession session = loadSessionGraph(sessionName);
+            Map<String, Channel> channelMap = buildChannelMap(session);
+            Channel channel = channelMap.get(channelName);
 
             if (channel != null) {
                 channel.getShapes().clear();
@@ -249,35 +187,21 @@ public class WhiteboardService {
         }
     }
 
-    /**
-     * Posts a chat message. Immediately returns the message object, but persists it asynchronously
-     * via the background worker. On DB failure, automatically falls back to file storage.
-     * 
-     * @param sessionName session identifier
-     * @param channelName channel identifier
-     * @param payload chat message payload
-     * @return the ChatMessage object (with timestamp)
-     * @throws SessionException if session or channel not found
-     */
     @Transactional
     public ChatMessage postChatMessage(String sessionName, String channelName, ChatPayload payload) throws SessionException {
         try {
-            WhiteboardSession session = sessionRepository.findBySessionName(sessionName)
-                    .orElseThrow(() -> SessionException.sessionNotFound(sessionName));
+            WhiteboardSession session = loadSessionGraph(sessionName);
 
-            // Verify channel exists
-            session.getChannels().stream()
-                    .filter(c -> c.getChannelName().equals(channelName))
-                    .findFirst()
-                    .orElseThrow(() -> new SessionException("Channel '" + channelName + "' not found in session '" + sessionName + "'"));
+            Map<String, Channel> channelMap = buildChannelMap(session);
+            if (!channelMap.containsKey(channelName)) {
+                throw new SessionException("Channel '" + channelName + "' not found in session '" + sessionName + "'");
+            }
 
-            // Create the message immediately (for frontend optimistic UI)
             ChatMessage newMessage = new ChatMessage();
             newMessage.setSenderName(payload.getSenderName());
             newMessage.setContent(payload.getContent());
             newMessage.setTimestamp(Instant.now());
 
-            // Submit to background worker for async persistence
             log.debug("Submitting chat message for async persistence: session='{}', channel='{}', sender='{}'",
                     sessionName, channelName, payload.getSenderName());
             
@@ -300,21 +224,53 @@ public class WhiteboardService {
         }
     }
 
+    @Transactional(readOnly = true)
     public Optional<WhiteboardSession> getSession(String sessionName) {
-        return sessionRepository.findBySessionName(sessionName);
+        // First load manager and channels
+        Optional<WhiteboardSession> sessionOpt = sessionRepository.findCompleteSessionBySessionName(sessionName);
+        
+        if (sessionOpt.isPresent()) {
+            WhiteboardSession session = sessionOpt.get();
+            
+            // Separately load participants to avoid multiple bags issue
+            sessionRepository.findWithParticipantsBySessionName(sessionName)
+                    .ifPresent(sess -> session.setParticipants(sess.getParticipants()));
+            
+            // Initialize channel collections
+            if (session.getChannels() != null) {
+                for (Channel channel : session.getChannels()) {
+                    if (channel.getChatMessages() != null) {
+                        channel.getChatMessages().size();
+                    }
+                    if (channel.getShapes() != null) {
+                        channel.getShapes().size();
+                    }
+                }
+            }
+        }
+        
+        return sessionOpt;
     }
 
     @Transactional(readOnly = true)
     public java.util.List<ChatMessage> getChatMessages(String sessionName, String channelName) throws SessionException {
         try {
-            WhiteboardSession session = sessionRepository.findBySessionName(sessionName)
-                    .orElseThrow(() -> SessionException.sessionNotFound(sessionName));
+            WhiteboardSession session = loadSessionGraph(sessionName);
 
-            return session.getChannels().stream()
-                    .filter(c -> c.getChannelName().equals(channelName))
-                    .findFirst()
-                    .map(Channel::getChatMessages)
-                    .orElseThrow(() -> new SessionException("Channel '" + channelName + "' not found in session '" + sessionName + "'"));
+            List<Channel> channels = session.getChannels();
+            if (channels == null) {
+                throw new SessionException("Channel '" + channelName + "' not found in session '" + sessionName + "'");
+            }
+            
+            Map<String, Channel> channelMap = channels.stream()
+                    .collect(Collectors.toMap(Channel::getChannelName, Function.identity()));
+            Channel channel = channelMap.get(channelName);
+            if (channel == null) {
+                throw new SessionException("Channel '" + channelName + "' not found in session '" + sessionName + "'");
+            }
+            
+            List<ChatMessage> messages = channel.getChatMessages();
+            return messages != null ? messages : new ArrayList<>();
         } catch (SessionException e) {
             throw e;
         } catch (Exception e) {
@@ -326,14 +282,22 @@ public class WhiteboardService {
     @Transactional(readOnly = true)
     public java.util.List<DrawPayload> getShapes(String sessionName, String channelName) throws SessionException {
         try {
-            WhiteboardSession session = sessionRepository.findBySessionName(sessionName)
-                    .orElseThrow(() -> SessionException.sessionNotFound(sessionName));
+            WhiteboardSession session = loadSessionGraph(sessionName);
 
-            return session.getChannels().stream()
-                    .filter(c -> c.getChannelName().equals(channelName))
-                    .findFirst()
-                    .map(Channel::getShapes)
-                    .orElseThrow(() -> new SessionException("Channel '" + channelName + "' not found in session '" + sessionName + "'"));
+            List<Channel> channels = session.getChannels();
+            if (channels == null) {
+                throw new SessionException("Channel '" + channelName + "' not found in session '" + sessionName + "'");
+            }
+            
+            Map<String, Channel> channelMap = channels.stream()
+                    .collect(Collectors.toMap(Channel::getChannelName, Function.identity()));
+            Channel channel = channelMap.get(channelName);
+            if (channel == null) {
+                throw new SessionException("Channel '" + channelName + "' not found in session '" + sessionName + "'");
+            }
+            
+            List<DrawPayload> shapes = channel.getShapes();
+            return shapes != null ? shapes : new ArrayList<>();
         } catch (SessionException e) {
             throw e;
         } catch (Exception e) {
@@ -342,12 +306,6 @@ public class WhiteboardService {
         }
     }
 
-    /**
-     * Replays all fallback events back into the database.
-     * Called during recovery when database becomes available again.
-     * 
-     * @return number of events successfully replayed
-     */
     @Transactional
     public int replayFallbackEvents() {
         int successCount = 0;
@@ -382,20 +340,36 @@ public class WhiteboardService {
         return successCount;
     }
 
-    /**
-     * Replays a single fallback event back into the database.
-     */
+    @Scheduled(initialDelayString = "${whiteboard.replay.initial-delay:60000}",
+            fixedDelayString = "${whiteboard.replay.interval:60000}")
+    @Transactional
+    public void scheduledFallbackReplay() {
+        if (!replayEnabled) {
+            return;
+        }
+        long pendingEvents = fallbackStorage.getFallbackEventCount();
+        if (pendingEvents == 0) {
+            return;
+        }
+        try {
+            int replayed = replayFallbackEvents();
+            log.info("Scheduled fallback replay processed {} events", replayed);
+        } catch (Exception e) {
+            log.warn("Scheduled fallback replay failed", e);
+        }
+    }
+
     private void replayEvent(FallbackStorage.FallbackEvent event) throws Exception {
         if ("DRAW".equals(event.getEventType())) {
             DrawPayload payload = objectMapper.convertValue(event.getData(), DrawPayload.class);
 
-            WhiteboardSession session = sessionRepository.findBySessionName(event.getSessionName())
-                    .orElseThrow(() -> new SessionException("Session '" + event.getSessionName() + "' not found during replay"));
+            WhiteboardSession session = loadSessionGraph(event.getSessionName());
 
-            Channel channel = session.getChannels().stream()
-                    .filter(c -> c.getChannelName().equals(event.getChannelName()))
-                    .findFirst()
-                    .orElseThrow(() -> new SessionException("Channel '" + event.getChannelName() + "' not found during replay"));
+            Map<String, Channel> channelMap = buildChannelMap(session);
+            Channel channel = channelMap.get(event.getChannelName());
+            if (channel == null) {
+                throw new SessionException("Channel '" + event.getChannelName() + "' not found during replay");
+            }
 
             channel.getShapes().add(payload);
             sessionRepository.save(session);
@@ -405,18 +379,51 @@ public class WhiteboardService {
         } else if ("CHAT".equals(event.getEventType())) {
             ChatMessage message = objectMapper.convertValue(event.getData(), ChatMessage.class);
 
-            WhiteboardSession session = sessionRepository.findBySessionName(event.getSessionName())
-                    .orElseThrow(() -> new SessionException("Session '" + event.getSessionName() + "' not found during replay"));
+            WhiteboardSession session = loadSessionGraph(event.getSessionName());
 
-            Channel channel = session.getChannels().stream()
-                    .filter(c -> c.getChannelName().equals(event.getChannelName()))
-                    .findFirst()
-                    .orElseThrow(() -> new SessionException("Channel '" + event.getChannelName() + "' not found during replay"));
+            Map<String, Channel> channelMap = buildChannelMap(session);
+            Channel channel = channelMap.get(event.getChannelName());
+            if (channel == null) {
+                throw new SessionException("Channel '" + event.getChannelName() + "' not found during replay");
+            }
 
             channel.getChatMessages().add(message);
             sessionRepository.save(session);
             log.debug("Replayed chat message: session='{}', channel='{}', sender='{}'", 
                     event.getSessionName(), event.getChannelName(), message.getSenderName());
         }
+    }
+
+    private WhiteboardSession loadSessionGraph(String sessionName) throws SessionException {
+        WhiteboardSession session = sessionRepository.findCompleteSessionBySessionName(sessionName)
+            .orElseThrow(() -> SessionException.sessionNotFound(sessionName));
+        
+        if (session.getParticipants() != null) {
+            session.getParticipants().size();
+        }
+        
+        if (session.getChannels() != null) {
+            for (Channel channel : session.getChannels()) {
+                if (channel.getChatMessages() != null) {
+                    channel.getChatMessages().size();
+                }
+                if (channel.getShapes() != null) {
+                    channel.getShapes().size();
+                }
+            }
+        }
+        
+        return session;
+    }
+
+    private Map<String, Channel> buildChannelMap(WhiteboardSession session) {
+        if (session.getChannels() == null) {
+            return Map.of();
+        }
+        return session.getChannels().stream()
+                .collect(Collectors.toMap(
+                        Channel::getChannelName,
+                        Function.identity()
+                ));
     }
 }

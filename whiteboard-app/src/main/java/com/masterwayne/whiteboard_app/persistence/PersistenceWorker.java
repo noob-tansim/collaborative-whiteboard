@@ -1,6 +1,7 @@
 package com.masterwayne.whiteboard_app.persistence;
 
 import com.masterwayne.whiteboard_app.exception.PersistenceException;
+import com.masterwayne.whiteboard_app.model.Channel;
 import com.masterwayne.whiteboard_app.model.ChatMessage;
 import com.masterwayne.whiteboard_app.model.DrawPayload;
 import com.masterwayne.whiteboard_app.repository.WhiteboardSessionRepository;
@@ -12,6 +13,10 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.*;
 
 /**
@@ -30,7 +35,8 @@ import java.util.concurrent.*;
 @Component
 public class PersistenceWorker {
     private static final Logger logger = LoggerFactory.getLogger(PersistenceWorker.class);
-    private static final int QUEUE_CAPACITY = 1000;
+    private static final int QUEUE_CAPACITY = 10000;
+    private static final int MAX_BATCH_SIZE = 100;
     private static final int SHUTDOWN_TIMEOUT_SECONDS = 10;
 
     private final BlockingQueue<PersistenceTask> taskQueue;
@@ -80,7 +86,10 @@ public class PersistenceWorker {
             try {
                 // Take a task from the queue (blocking, waits indefinitely)
                 PersistenceTask task = taskQueue.take();
-                executePersistenceTask(task);
+                List<PersistenceTask> batch = new ArrayList<>(MAX_BATCH_SIZE);
+                batch.add(task);
+                taskQueue.drainTo(batch, MAX_BATCH_SIZE - batch.size());
+                executeBatch(batch);
             } catch (InterruptedException e) {
                 if (running) {
                     // Unexpected interruption; log and continue
@@ -103,35 +112,103 @@ public class PersistenceWorker {
     /**
      * Executes a single persistence task with retry logic and fallback.
      */
-    private void executePersistenceTask(PersistenceTask task) {
+    private void executeBatch(List<PersistenceTask> tasks) {
+        if (tasks == null || tasks.isEmpty()) {
+            return;
+        }
+
         try {
-            // Ensure the persistence operation runs inside a Spring-managed transaction so
-            // JPA/Hibernate lazy collections (e.g. session.getChannels()) can be initialized
-            // correctly when accessed on the background worker thread.
             transactionTemplate.execute(status -> {
                 try {
-                    task.execute(sessionRepository);
+                    applyBatch(tasks);
                     return null;
                 } catch (Exception e) {
-                    // rethrow as runtime so TransactionTemplate will propagate
                     throw new RuntimeException(e);
                 }
             });
 
-            logger.debug("Persistence task completed successfully: {}", task.getDescription());
+            if (logger.isDebugEnabled()) {
+                logger.debug("Persistence batch completed: {} tasks", tasks.size());
+            }
         } catch (RuntimeException e) {
             Throwable cause = e.getCause() != null ? e.getCause() : e;
-            logger.error("Persistence task failed: {}. Attempting fallback storage.", task.getDescription(), cause);
-            // Attempt fallback
-            try {
-                task.writeFallback(fallbackStorage);
-                logger.warn("Event successfully written to fallback storage: {}", task.getDescription());
-            } catch (Exception fallbackEx) {
-                logger.error("Fallback storage also failed for task: {}", task.getDescription(), fallbackEx);
+            logger.error("Persistence batch failed ({} tasks). Attempting fallback storage.", tasks.size(), cause);
+            for (PersistenceTask task : tasks) {
+                try {
+                    task.writeFallback(fallbackStorage);
+                    logger.warn("Event written to fallback storage: {}", task.getDescription());
+                } catch (Exception fallbackEx) {
+                    logger.error("Fallback storage failed for task: {}", task.getDescription(), fallbackEx);
+                }
             }
         } catch (Exception e) {
-            logger.error("Unexpected error executing persistence task: {}", task.getDescription(), e);
+            logger.error("Unexpected error executing persistence batch", e);
         }
+    }
+
+    private void applyBatch(List<PersistenceTask> tasks) throws Exception {
+        Map<String, List<PersistenceTask>> tasksBySession = new LinkedHashMap<>();
+        for (PersistenceTask task : tasks) {
+            tasksBySession.computeIfAbsent(task.getSessionName(), k -> new ArrayList<>())
+                    .add(task);
+        }
+
+        for (Map.Entry<String, List<PersistenceTask>> entry : tasksBySession.entrySet()) {
+            String sessionName = entry.getKey();
+            var session = sessionRepository.findBySessionName(sessionName)
+                    .orElseThrow(() -> new PersistenceException("Session '" + sessionName + "' not found for persisting batch"));
+
+            Map<String, Channel> channelCache = buildChannelCache(session);
+            Map<String, List<DrawPayload>> drawEventsByChannel = new LinkedHashMap<>();
+            Map<String, List<ChatMessage>> chatEventsByChannel = new LinkedHashMap<>();
+
+            for (PersistenceTask task : entry.getValue()) {
+                if (task instanceof DrawPersistenceTask drawTask) {
+                    drawEventsByChannel
+                            .computeIfAbsent(task.getChannelName(), k -> new ArrayList<>())
+                            .add(drawTask.payload);
+                } else if (task instanceof ChatPersistenceTask chatTask) {
+                    chatEventsByChannel
+                            .computeIfAbsent(task.getChannelName(), k -> new ArrayList<>())
+                            .add(chatTask.message);
+                } else {
+                    // Fallback for future task types
+                    task.apply(session);
+                }
+            }
+
+            for (Map.Entry<String, List<DrawPayload>> drawEntry : drawEventsByChannel.entrySet()) {
+                Channel channel = resolveChannel(drawEntry.getKey(), channelCache, session);
+                channel.getShapes().addAll(drawEntry.getValue());
+            }
+
+            for (Map.Entry<String, List<ChatMessage>> chatEntry : chatEventsByChannel.entrySet()) {
+                Channel channel = resolveChannel(chatEntry.getKey(), channelCache, session);
+                channel.getChatMessages().addAll(chatEntry.getValue());
+            }
+
+            sessionRepository.save(session);
+        }
+    }
+
+    private Map<String, Channel> buildChannelCache(com.masterwayne.whiteboard_app.model.WhiteboardSession session) {
+        Map<String, Channel> cache = new LinkedHashMap<>();
+        if (session.getChannels() != null) {
+            for (Channel channel : session.getChannels()) {
+                cache.put(channel.getChannelName(), channel);
+            }
+        }
+        return cache;
+    }
+
+    private Channel resolveChannel(String channelName,
+                                   Map<String, Channel> channelCache,
+                                   com.masterwayne.whiteboard_app.model.WhiteboardSession session) throws PersistenceException {
+        Channel channel = channelCache.get(channelName);
+        if (channel == null) {
+            throw new PersistenceException("Channel '" + channelName + "' not found in session");
+        }
+        return channel;
     }
 
     /**
@@ -208,7 +285,9 @@ public class PersistenceWorker {
         PersistenceTask remainingTask;
         while ((remainingTask = taskQueue.poll()) != null) {
             try {
-                executePersistenceTask(remainingTask);
+                List<PersistenceTask> single = new ArrayList<>(1);
+                single.add(remainingTask);
+                executeBatch(single);
                 drained++;
             } catch (Exception e) {
                 logger.error("Error processing remaining task during shutdown", e);
@@ -250,7 +329,7 @@ public class PersistenceWorker {
         /**
          * Executes the persistence operation (DB write).
          */
-        public abstract void execute(WhiteboardSessionRepository repository) throws Exception;
+    public abstract void apply(com.masterwayne.whiteboard_app.model.WhiteboardSession session) throws Exception;
 
         /**
          * Writes the event to fallback storage if DB write failed.
@@ -275,6 +354,14 @@ public class PersistenceWorker {
         public static PersistenceTask chatTask(String sessionName, String channelName, ChatMessage message) {
             return new ChatPersistenceTask(sessionName, channelName, message);
         }
+
+        public String getSessionName() {
+            return sessionName;
+        }
+
+        public String getChannelName() {
+            return channelName;
+        }
     }
 
     /**
@@ -289,17 +376,13 @@ public class PersistenceWorker {
         }
 
         @Override
-        public void execute(WhiteboardSessionRepository repository) throws Exception {
-            var session = repository.findBySessionName(sessionName)
-                    .orElseThrow(() -> new PersistenceException("Session '" + sessionName + "' not found for persisting shape"));
+    public void apply(com.masterwayne.whiteboard_app.model.WhiteboardSession session) throws Exception {
+        var channel = session.getChannels().stream()
+            .filter(c -> c.getChannelName().equals(channelName))
+            .findFirst()
+            .orElseThrow(() -> new PersistenceException("Channel '" + channelName + "' not found in session"));
 
-            var channel = session.getChannels().stream()
-                    .filter(c -> c.getChannelName().equals(channelName))
-                    .findFirst()
-                    .orElseThrow(() -> new PersistenceException("Channel '" + channelName + "' not found in session"));
-
-            channel.getShapes().add(payload);
-            repository.save(session);
+        channel.getShapes().add(payload);
         }
 
         @Override
@@ -325,17 +408,13 @@ public class PersistenceWorker {
         }
 
         @Override
-        public void execute(WhiteboardSessionRepository repository) throws Exception {
-            var session = repository.findBySessionName(sessionName)
-                    .orElseThrow(() -> new PersistenceException("Session '" + sessionName + "' not found for persisting chat"));
+    public void apply(com.masterwayne.whiteboard_app.model.WhiteboardSession session) throws Exception {
+        var channel = session.getChannels().stream()
+            .filter(c -> c.getChannelName().equals(channelName))
+            .findFirst()
+            .orElseThrow(() -> new PersistenceException("Channel '" + channelName + "' not found in session"));
 
-            var channel = session.getChannels().stream()
-                    .filter(c -> c.getChannelName().equals(channelName))
-                    .findFirst()
-                    .orElseThrow(() -> new PersistenceException("Channel '" + channelName + "' not found in session"));
-
-            channel.getChatMessages().add(message);
-            repository.save(session);
+        channel.getChatMessages().add(message);
         }
 
         @Override

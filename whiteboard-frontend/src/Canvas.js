@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useState, useMemo } from 'react';
 import './Canvas.css';
 
 function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) {
@@ -6,59 +6,32 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
   const overlayRef = useRef(null);
   const lastPosRef = useRef(null);
   const shapeStartRef = useRef(null);
+  const rafIdRef = useRef(null);
+  const pendingSegmentRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
 
   // --- Toolbar State ---
   const [color, setColor] = useState('#000000');
   const [lineWidth, setLineWidth] = useState(5);
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
+  const initialBackgroundColor = useRef(backgroundColor);
   const [tool, setTool] = useState('pen'); // 'pen' | 'eraser' | 'line' | 'rect' | 'circle'
-
-  // This effect is for REDRAWING when remote events come in
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-
-    // Clear and fill background first
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // Fill logical size (we scaled for DPR already)
-    const baseWidth = 900;
-    const baseHeight = 600;
-    ctx.fillStyle = backgroundColor;
-    ctx.fillRect(0, 0, baseWidth, baseHeight);
-
-    // Redraw ALL events from the history
-    drawEvents.forEach(event => {
-      if (event.type === 'line-segment') {
-        drawSegment(ctx, event);
-      } else if (event.type === 'shape-line') {
-        drawLineShape(ctx, event);
-      } else if (event.type === 'shape-rect') {
-        drawRectShape(ctx, event);
-      } else if (event.type === 'shape-circle') {
-        drawCircleShape(ctx, event);
-      } else if (event.type === 'clear') {
-        // Already cleared above by state reset, keep background
-      }
-    });
-  }, [drawEvents, backgroundColor]); // Re-run when drawEvents or background changes
 
   // Make canvas crisp on HiDPI displays and set up initial size (ONLY on mount)
   useEffect(() => {
     const canvas = canvasRef.current;
     const overlay = overlayRef.current;
     const ratio = window.devicePixelRatio || 1;
-    // base size (matches JSX width/height)
     const baseWidth = 900;
     const baseHeight = 600;
+
     canvas.width = baseWidth * ratio;
     canvas.height = baseHeight * ratio;
     canvas.style.width = baseWidth + 'px';
     canvas.style.height = baseHeight + 'px';
     const ctx = canvas.getContext('2d');
     ctx.scale(ratio, ratio);
-    // Initial fill background
-    ctx.fillStyle = backgroundColor;
+    ctx.fillStyle = initialBackgroundColor.current;
     ctx.fillRect(0, 0, baseWidth, baseHeight);
 
     if (overlay) {
@@ -71,8 +44,17 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     }
   }, []); // Empty dependency array - run only once on mount
 
+  useEffect(() => {
+    return () => {
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = null;
+      }
+    };
+  }, []);
+
   // --- Helper function for drawing a single segment ---
-  const drawSegment = (ctx, segment) => {
+  const drawSegment = useCallback((ctx, segment) => {
     ctx.beginPath();
     ctx.strokeStyle = segment.color;
     ctx.lineWidth = segment.lineWidth;
@@ -90,10 +72,10 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     ctx.lineTo(segment.x2, segment.y2);
     ctx.stroke();
     ctx.closePath();
-  };
+  }, []);
 
   // --- Shape renderers ---
-  const drawLineShape = (ctx, seg) => {
+  const drawLineShape = useCallback((ctx, seg) => {
     ctx.beginPath();
     ctx.strokeStyle = seg.color;
     ctx.lineWidth = seg.lineWidth;
@@ -102,9 +84,9 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     ctx.lineTo(seg.x2, seg.y2);
     ctx.stroke();
     ctx.closePath();
-  };
+  }, []);
 
-  const drawRectShape = (ctx, seg) => {
+  const drawRectShape = useCallback((ctx, seg) => {
     ctx.beginPath();
     ctx.strokeStyle = seg.color;
     ctx.lineWidth = seg.lineWidth;
@@ -114,9 +96,9 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     const h = Math.abs(seg.y2 - seg.y1);
     ctx.strokeRect(x, y, w, h);
     ctx.closePath();
-  };
+  }, []);
 
-  const drawCircleShape = (ctx, seg) => {
+  const drawCircleShape = useCallback((ctx, seg) => {
     // Interpret x1,y1 as center and x2,y2 as a point on circumference
     const dx = seg.x2 - seg.x1;
     const dy = seg.y2 - seg.y1;
@@ -127,7 +109,7 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     ctx.arc(seg.x1, seg.y1, r, 0, Math.PI * 2);
     ctx.stroke();
     ctx.closePath();
-  };
+  }, []);
 
   // --- Pointer Event Handlers for LOCAL drawing (works for mouse, touch, stylus) ---
   const getPointerPos = (e) => {
@@ -139,11 +121,61 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     };
   };
 
-  const drawLocalSegment = (segment) => {
+  const drawLocalSegment = useCallback((segment) => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     drawSegment(ctx, segment);
-  };
+  }, [drawSegment]);
+
+  // Redraw remote events whenever history changes
+  // Optimize: Only redraw if drawEvents actually changed (not just reference)
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const baseWidth = 900;
+    const baseHeight = 600;
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(0, 0, baseWidth, baseHeight);
+
+    // Only redraw if we have a reasonable number of events
+    // Limit to last 500 events for performance on long sessions
+    const recentEvents = drawEvents.slice(-500);
+    
+    recentEvents.forEach(event => {
+      if (event.type === 'line-segment') {
+        drawSegment(ctx, event);
+      } else if (event.type === 'shape-line') {
+        drawLineShape(ctx, event);
+      } else if (event.type === 'shape-rect') {
+        drawRectShape(ctx, event);
+      } else if (event.type === 'shape-circle') {
+        drawCircleShape(ctx, event);
+      }
+    });
+  }, [drawEvents, backgroundColor, drawSegment, drawLineShape, drawRectShape, drawCircleShape]);
+
+  const flushPendingSegment = useCallback(() => {
+    if (!pendingSegmentRef.current) {
+      rafIdRef.current = null;
+      return;
+    }
+    const segment = pendingSegmentRef.current;
+    pendingSegmentRef.current = null;
+    drawLocalSegment(segment);
+    addLocalDrawEvent && addLocalDrawEvent(segment);
+    sendDrawEvent(segment);
+    rafIdRef.current = null;
+  }, [addLocalDrawEvent, sendDrawEvent, drawLocalSegment]);
+
+  const queueSegment = useCallback((segment) => {
+    pendingSegmentRef.current = segment;
+    if (!rafIdRef.current) {
+      rafIdRef.current = requestAnimationFrame(flushPendingSegment);
+    }
+  }, [flushPendingSegment]);
 
   const startDrawing = (e) => {
     // capture pointer so we continue receiving events even if pointer leaves canvas
@@ -163,10 +195,7 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
         color: tool === 'eraser' ? backgroundColor : color,
         lineWidth: lineWidth
       };
-      drawLocalSegment(dotPayload);
-      // Keep local history in sync so redraw effect doesn't erase the dot before server echo
-      addLocalDrawEvent && addLocalDrawEvent(dotPayload);
-      sendDrawEvent(dotPayload);
+      queueSegment(dotPayload);
     } else {
       // Shapes: no immediate draw, prepare overlay
       const overlay = overlayRef.current;
@@ -199,10 +228,7 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
         color: tool === 'eraser' ? backgroundColor : color,
         lineWidth: lineWidth
       };
-      drawLocalSegment(payload);
-      // Add to local history immediately so re-render preserves what user sees
-      addLocalDrawEvent && addLocalDrawEvent(payload);
-      sendDrawEvent(payload);
+      queueSegment(payload);
       lastPosRef.current = newPos;
       return;
     }
@@ -222,10 +248,13 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
   const stopDrawing = (e) => {
     setIsDrawing(false);
     try { e && e.target.releasePointerCapture && e.target.releasePointerCapture(e.pointerId); } catch (err) {}
-  const end = e ? getPointerPos(e) : (lastPosRef.current || shapeStartRef.current);
+    const end = e ? getPointerPos(e) : (lastPosRef.current || shapeStartRef.current);
     const start = shapeStartRef.current;
     lastPosRef.current = null;
     if (tool === 'pen' || tool === 'eraser') {
+      if (pendingSegmentRef.current) {
+        flushPendingSegment();
+      }
       shapeStartRef.current = null;
       return;
     }
@@ -266,7 +295,7 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     if (t.endsWith('line')) drawLineShape(octx, seg);
     else if (t.endsWith('rect')) drawRectShape(octx, seg);
     else if (t.endsWith('circle')) drawCircleShape(octx, seg);
-  }, [previewShape]);
+  }, [previewShape, drawLineShape, drawRectShape, drawCircleShape]);
 
   // --- Toolbar Handlers ---
   const handleClear = () => {
@@ -308,7 +337,7 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
           />
           <span>{lineWidth}</span>
         </div>
-      
+
         <div className="tool-group">
           <label htmlFor="bg-color-picker">Board BG:</label>
           <input
@@ -318,11 +347,11 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
             onChange={(e) => setBackgroundColor(e.target.value)}
           />
         </div>
-  <button className={tool==='pen'?'active':''} onClick={() => setTool('pen')}>Pen</button>
-  <button className={tool==='line'?'active':''} onClick={() => setTool('line')}>Line</button>
-  <button className={tool==='rect'?'active':''} onClick={() => setTool('rect')}>Rectangle</button>
-  <button className={tool==='circle'?'active':''} onClick={() => setTool('circle')}>Circle</button>
-  <button className={tool==='eraser'?'active':''} onClick={() => setTool('eraser')}>Eraser</button>
+        <button className={tool==='pen'?'active':''} onClick={() => setTool('pen')}>Pen</button>
+        <button className={tool==='line'?'active':''} onClick={() => setTool('line')}>Line</button>
+        <button className={tool==='rect'?'active':''} onClick={() => setTool('rect')}>Rectangle</button>
+        <button className={tool==='circle'?'active':''} onClick={() => setTool('circle')}>Circle</button>
+        <button className={tool==='eraser'?'active':''} onClick={() => setTool('eraser')}>Eraser</button>
         <button onClick={handleClear}>Clear All</button>
       </div>
       <div className="canvas-stage">
@@ -348,4 +377,4 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
   );
 }
 
-export default Canvas;
+export default memo(Canvas);

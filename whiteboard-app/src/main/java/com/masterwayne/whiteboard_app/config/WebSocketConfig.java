@@ -5,6 +5,7 @@ import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+import org.springframework.web.socket.config.annotation.WebSocketTransportRegistration;
 
 @Configuration
 @EnableWebSocketMessageBroker
@@ -19,15 +20,24 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     }
 
     @Override
+    public void configureWebSocketTransport(WebSocketTransportRegistration registry) {
+        // Configure WebSocket transport for better stability
+        registry.setMessageSizeLimit(512 * 1024) // 512KB max message size
+               .setSendTimeLimit(20 * 1000) // 20 seconds to send a message
+               .setSendBufferSizeLimit(512 * 1024) // 512KB send buffer
+               .setTimeToFirstMessage(60 * 1000); // 60 seconds to receive first message
+    }
+
+    @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        // This is the line you were missing:
-        // It registers "/ws" as the STOMP endpoint and enables SockJS fallback options.
-        // This is what your frontend connects to.
-        // Allow the CRA dev server origin so SockJS transports (websocket, eventsource, xhr, etc.)
-        // can connect during local development. Use specific origins for safety; in dev you
-        // may also use setAllowedOriginPatterns("*") to allow all origins.
+        // Register the STOMP endpoint and enable SockJS fallback
         registry.addEndpoint("/ws")
-                .setAllowedOriginPatterns("http://localhost:30*", "http://127.0.0.1:30*")
-                .withSockJS();
+                .setAllowedOriginPatterns("http://localhost:*", "http://127.0.0.1:*", "*")
+                .withSockJS()
+                .setSessionCookieNeeded(false)
+                .setStreamBytesLimit(512 * 1024)
+                .setDisconnectDelay(30 * 60 * 1000)
+                .setHttpMessageCacheSize(1000)
+                .setWebSocketEnabled(true);
     }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { memo, useEffect, useRef, useState, useMemo } from 'react';
 import './Chat.css';
 
 function Chat({ chatMessages, sendChatMessage }) {
@@ -8,6 +8,18 @@ function Chat({ chatMessages, sendChatMessage }) {
   // Auto-scroll to the bottom when new messages arrive
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [chatMessages]);
+
+  // Memoize formatted messages to avoid re-formatting on every render
+  const formattedMessages = useMemo(() => {
+    return chatMessages.map((msg, index) => {
+      const dt = msg.timestamp ? new Date(msg.timestamp) : new Date();
+      const timeLabel = dt.toLocaleString([], {
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit'
+      });
+      return { ...msg, timeLabel, index };
+    });
   }, [chatMessages]);
 
   const handleSend = (e) => {
@@ -22,23 +34,16 @@ function Chat({ chatMessages, sendChatMessage }) {
     <div className="chat-area">
       <h3 className="chat-title">Session Chat</h3>
       <div className="message-list">
-        {chatMessages.length === 0 && (
+        {formattedMessages.length === 0 && (
           <div className="empty-chat">No messages yet.</div>
         )}
-        {chatMessages.map((msg, index) => {
-          const dt = msg.timestamp ? new Date(msg.timestamp) : new Date();
-          const timeLabel = dt.toLocaleString([], {
-            year: 'numeric', month: '2-digit', day: '2-digit',
-            hour: '2-digit', minute: '2-digit'
-          });
-          return (
-            <div key={index} className={`chat-message${msg.optimistic ? ' optimistic' : ''}`}>
-              <span className="sender-name">{msg.senderName}</span>
-              <span className="timestamp">{timeLabel}</span>
-              <span className="message-content">: {msg.content}</span>
-            </div>
-          );
-        })}
+        {formattedMessages.map((msg) => (
+          <div key={msg.index} className={`chat-message${msg.optimistic ? ' optimistic' : ''}`}>
+            <span className="sender-name">{msg.senderName}</span>
+            <span className="timestamp">{msg.timeLabel}</span>
+            <span className="message-content">: {msg.content}</span>
+          </div>
+        ))}
         <div ref={messagesEndRef} />
       </div>
       <form className="chat-input-form" onSubmit={handleSend}>
@@ -57,4 +62,4 @@ function Chat({ chatMessages, sendChatMessage }) {
   );
 }
 
-export default Chat;
+export default memo(Chat);

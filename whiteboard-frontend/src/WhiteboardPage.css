@@ -50,7 +50,7 @@
 
 .main-content {
   display: flex;
-  gap: 20px;
+  gap: 0;
   /* Set a height for the main content area */
   height: calc(100vh - 180px); 
 }

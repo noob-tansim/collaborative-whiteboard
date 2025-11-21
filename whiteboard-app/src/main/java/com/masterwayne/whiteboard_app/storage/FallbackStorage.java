@@ -183,10 +183,8 @@ public class FallbackStorage {
 
         if (Files.exists(fallbackFilePath)) {
             try {
-                long size = Files.size(fallbackFilePath);
-                int lineCount = (int) Files.lines(fallbackFilePath).count();
-                stats.put("fileSizeBytes", size);
-                stats.put("eventCount", lineCount);
+                stats.put("fileSizeBytes", Files.size(fallbackFilePath));
+                stats.put("eventCount", Files.lines(fallbackFilePath).count());
             } catch (IOException e) {
                 logger.warn("Failed to compute fallback file statistics", e);
                 stats.put("error", e.getMessage());
@@ -194,6 +192,30 @@ public class FallbackStorage {
         }
 
         return stats;
+    }
+
+    public synchronized long getFallbackEventCount() {
+        if (!Files.exists(fallbackFilePath)) {
+            return 0L;
+        }
+        try {
+            return Files.lines(fallbackFilePath).count();
+        } catch (IOException e) {
+            logger.warn("Failed to count fallback events", e);
+            return 0L;
+        }
+    }
+
+    public synchronized long getFallbackFileSizeBytes() {
+        if (!Files.exists(fallbackFilePath)) {
+            return 0L;
+        }
+        try {
+            return Files.size(fallbackFilePath);
+        } catch (IOException e) {
+            logger.warn("Failed to read fallback file size", e);
+            return 0L;
+        }
     }
 
     /**

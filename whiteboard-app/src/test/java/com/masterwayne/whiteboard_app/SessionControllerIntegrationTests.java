@@ -2,7 +2,7 @@ package com.masterwayne.whiteboard_app;
 
 import com.masterwayne.whiteboard_app.dto.CreateSessionRequest;
 import com.masterwayne.whiteboard_app.dto.JoinSessionRequest;
-import com.masterwayne.whiteboard_app.model.WhiteboardSession;
+import com.masterwayne.whiteboard_app.dto.SessionResponseDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,9 +32,9 @@ public class SessionControllerIntegrationTests {
         create.setSessionName("itest-session");
         create.setManagerName("managerX");
 
-    ResponseEntity<WhiteboardSession> created = rest.postForEntity(baseUrl() + "/create", create, WhiteboardSession.class);
+    ResponseEntity<SessionResponseDTO> created = rest.postForEntity(baseUrl() + "/create", create, SessionResponseDTO.class);
     assertEquals(HttpStatus.CREATED, created.getStatusCode());
-    WhiteboardSession createdBody = created.getBody();
+    SessionResponseDTO createdBody = created.getBody();
     assertNotNull(createdBody);
     assertEquals("itest-session", createdBody.getSessionName());
 
@@ -43,11 +43,11 @@ public class SessionControllerIntegrationTests {
         join.setSessionName("itest-session");
         join.setUserName("userY");
 
-    ResponseEntity<WhiteboardSession> joined = rest.postForEntity(baseUrl() + "/join", join, WhiteboardSession.class);
+    ResponseEntity<SessionResponseDTO> joined = rest.postForEntity(baseUrl() + "/join", join, SessionResponseDTO.class);
     assertEquals(HttpStatus.OK, joined.getStatusCode());
-    WhiteboardSession joinedBody = joined.getBody();
+    SessionResponseDTO joinedBody = joined.getBody();
     assertNotNull(joinedBody);
-    assertEquals(1, joinedBody.getParticipants().size());
-    assertEquals("userY", joinedBody.getParticipants().get(0).getName());
+    assertEquals(1, joinedBody.getParticipantNames().size());
+    assertEquals("userY", joinedBody.getParticipantNames().get(0));
     }
 }
