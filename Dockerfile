@@ -1,5 +1,5 @@
 # Build stage
-FROM maven:3.9.0-eclipse-temurin-17 as builder
+FROM maven:3.9.0-eclipse-temurin-17 AS builder
 WORKDIR /app
 COPY whiteboard-app ./whiteboard-app
 WORKDIR /app/whiteboard-app
