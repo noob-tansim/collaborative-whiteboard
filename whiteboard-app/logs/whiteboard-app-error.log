@@ -6323,3 +6323,7 @@ Action:
 Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
 
 2025-11-21 05:20:21 [SpringApplicationShutdownHook] WARN  c.m.w.persistence.PersistenceWorker - PersistenceWorker shutdown timeout. Forcing termination.
+2025-11-26 20:47:25 [main] WARN  c.m.w.service.WhiteboardService - Join session failed: User 'userA' is already in the session.
+2025-11-26 20:47:25 [main] WARN  c.m.w.service.WhiteboardService - Session creation failed: Session 'dup-1764168445890' already exists.
+2025-11-26 20:47:36 [SpringApplicationShutdownHook] WARN  c.m.w.persistence.PersistenceWorker - PersistenceWorker shutdown timeout. Forcing termination.
+2025-11-26 20:47:46 [SpringApplicationShutdownHook] WARN  c.m.w.persistence.PersistenceWorker - PersistenceWorker shutdown timeout. Forcing termination.

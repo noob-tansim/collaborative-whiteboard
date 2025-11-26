@@ -1,40 +1,24 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
-  console.log('Setting up proxy middleware...');
-  
-  // Proxy HTTP API requests to backend
+  // Proxy HTTP API requests to backend (CRA's "proxy" field already does this for simple cases)
   app.use(
     '/api',
     createProxyMiddleware({
       target: 'http://localhost:8081',
       changeOrigin: true,
-      pathRewrite: {
-        '^/api': '/api',
-      },
-      logLevel: 'warn',
+      ws: false, // HTTP only for API
     })
   );
 
-  // Proxy SockJS/STOMP websocket endpoint to backend with explicit WebSocket support
+  // Proxy SockJS/STOMP websocket endpoint to backend and enable websocket proxying
   app.use(
     '/ws',
     createProxyMiddleware({
       target: 'http://localhost:8081',
       changeOrigin: true,
       ws: true,
-      pathRewrite: {
-        '^/ws': '/ws',
-      },
-      onProxyRes: (proxyRes, req, res) => {
-        console.log('Proxy response:', req.method, req.path, proxyRes.statusCode);
-      },
-      onError: (err, req, res) => {
-        console.error('Proxy error on', req.path, ':', err);
-      },
-      logLevel: 'warn',
+      logLevel: 'debug',
     })
   );
-  
-  console.log('Proxy middleware configured successfully');
 };

@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useRef, useState, useMemo } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './Canvas.css';
 
 function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) {
@@ -6,55 +6,80 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
   const overlayRef = useRef(null);
   const lastPosRef = useRef(null);
   const shapeStartRef = useRef(null);
-  const rafIdRef = useRef(null);
-  const pendingSegmentRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
 
   // --- Toolbar State ---
   const [color, setColor] = useState('#000000');
   const [lineWidth, setLineWidth] = useState(5);
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
-  const initialBackgroundColor = useRef(backgroundColor);
   const [tool, setTool] = useState('pen'); // 'pen' | 'eraser' | 'line' | 'rect' | 'circle'
+
+  // This effect is for REDRAWING when remote events come in
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+
+    // Clear and fill background first
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Fill logical size (we scaled for DPR already)
+    const baseWidth = 1200;
+    const baseHeight = 700;
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(0, 0, baseWidth, baseHeight);
+
+    // Redraw ALL events from the history
+    drawEvents.forEach(event => {
+      if (event.type === 'line-segment') {
+        drawSegment(ctx, event);
+      } else if (event.type === 'shape-line') {
+        drawLineShape(ctx, event);
+      } else if (event.type === 'shape-rect') {
+        drawRectShape(ctx, event);
+      } else if (event.type === 'shape-circle') {
+        drawCircleShape(ctx, event);
+      } else if (event.type === 'clear') {
+        // Already cleared above by state reset, keep background
+      }
+    });
+  }, [drawEvents, backgroundColor]); // Re-run when drawEvents or background changes
 
   // Make canvas crisp on HiDPI displays and set up initial size (ONLY on mount)
   useEffect(() => {
     const canvas = canvasRef.current;
     const overlay = overlayRef.current;
-    const ratio = window.devicePixelRatio || 1;
-    const baseWidth = 900;
-    const baseHeight = 600;
+    
+    const updateCanvasSize = () => {
+      const ratio = window.devicePixelRatio || 1;
+      // base size (logical dimensions)
+      const baseWidth = 1200;
+      const baseHeight = 700;
+      
+      canvas.width = baseWidth * ratio;
+      canvas.height = baseHeight * ratio;
+      canvas.style.width = baseWidth + 'px';
+      canvas.style.height = baseHeight + 'px';
+      
+      const ctx = canvas.getContext('2d');
+      ctx.scale(ratio, ratio);
+      // Initial fill background
+      ctx.fillStyle = backgroundColor;
+      ctx.fillRect(0, 0, baseWidth, baseHeight);
 
-    canvas.width = baseWidth * ratio;
-    canvas.height = baseHeight * ratio;
-    canvas.style.width = baseWidth + 'px';
-    canvas.style.height = baseHeight + 'px';
-    const ctx = canvas.getContext('2d');
-    ctx.scale(ratio, ratio);
-    ctx.fillStyle = initialBackgroundColor.current;
-    ctx.fillRect(0, 0, baseWidth, baseHeight);
-
-    if (overlay) {
-      overlay.width = baseWidth * ratio;
-      overlay.height = baseHeight * ratio;
-      overlay.style.width = baseWidth + 'px';
-      overlay.style.height = baseHeight + 'px';
-      const octx = overlay.getContext('2d');
-      octx.scale(ratio, ratio);
-    }
-  }, []); // Empty dependency array - run only once on mount
-
-  useEffect(() => {
-    return () => {
-      if (rafIdRef.current) {
-        cancelAnimationFrame(rafIdRef.current);
-        rafIdRef.current = null;
+      if (overlay) {
+        overlay.width = baseWidth * ratio;
+        overlay.height = baseHeight * ratio;
+        overlay.style.width = baseWidth + 'px';
+        overlay.style.height = baseHeight + 'px';
+        const octx = overlay.getContext('2d');
+        octx.scale(ratio, ratio);
       }
     };
-  }, []);
+    
+    updateCanvasSize();
+  }, []); // Empty dependency array - run only once on mount
 
   // --- Helper function for drawing a single segment ---
-  const drawSegment = useCallback((ctx, segment) => {
+  const drawSegment = (ctx, segment) => {
     ctx.beginPath();
     ctx.strokeStyle = segment.color;
     ctx.lineWidth = segment.lineWidth;
@@ -72,10 +97,10 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     ctx.lineTo(segment.x2, segment.y2);
     ctx.stroke();
     ctx.closePath();
-  }, []);
+  };
 
   // --- Shape renderers ---
-  const drawLineShape = useCallback((ctx, seg) => {
+  const drawLineShape = (ctx, seg) => {
     ctx.beginPath();
     ctx.strokeStyle = seg.color;
     ctx.lineWidth = seg.lineWidth;
@@ -84,9 +109,9 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     ctx.lineTo(seg.x2, seg.y2);
     ctx.stroke();
     ctx.closePath();
-  }, []);
+  };
 
-  const drawRectShape = useCallback((ctx, seg) => {
+  const drawRectShape = (ctx, seg) => {
     ctx.beginPath();
     ctx.strokeStyle = seg.color;
     ctx.lineWidth = seg.lineWidth;
@@ -96,9 +121,9 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     const h = Math.abs(seg.y2 - seg.y1);
     ctx.strokeRect(x, y, w, h);
     ctx.closePath();
-  }, []);
+  };
 
-  const drawCircleShape = useCallback((ctx, seg) => {
+  const drawCircleShape = (ctx, seg) => {
     // Interpret x1,y1 as center and x2,y2 as a point on circumference
     const dx = seg.x2 - seg.x1;
     const dy = seg.y2 - seg.y1;
@@ -109,7 +134,7 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     ctx.arc(seg.x1, seg.y1, r, 0, Math.PI * 2);
     ctx.stroke();
     ctx.closePath();
-  }, []);
+  };
 
   // --- Pointer Event Handlers for LOCAL drawing (works for mouse, touch, stylus) ---
   const getPointerPos = (e) => {
@@ -121,61 +146,11 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     };
   };
 
-  const drawLocalSegment = useCallback((segment) => {
+  const drawLocalSegment = (segment) => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     drawSegment(ctx, segment);
-  }, [drawSegment]);
-
-  // Redraw remote events whenever history changes
-  // Optimize: Only redraw if drawEvents actually changed (not just reference)
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const baseWidth = 900;
-    const baseHeight = 600;
-    ctx.fillStyle = backgroundColor;
-    ctx.fillRect(0, 0, baseWidth, baseHeight);
-
-    // Only redraw if we have a reasonable number of events
-    // Limit to last 500 events for performance on long sessions
-    const recentEvents = drawEvents.slice(-500);
-    
-    recentEvents.forEach(event => {
-      if (event.type === 'line-segment') {
-        drawSegment(ctx, event);
-      } else if (event.type === 'shape-line') {
-        drawLineShape(ctx, event);
-      } else if (event.type === 'shape-rect') {
-        drawRectShape(ctx, event);
-      } else if (event.type === 'shape-circle') {
-        drawCircleShape(ctx, event);
-      }
-    });
-  }, [drawEvents, backgroundColor, drawSegment, drawLineShape, drawRectShape, drawCircleShape]);
-
-  const flushPendingSegment = useCallback(() => {
-    if (!pendingSegmentRef.current) {
-      rafIdRef.current = null;
-      return;
-    }
-    const segment = pendingSegmentRef.current;
-    pendingSegmentRef.current = null;
-    drawLocalSegment(segment);
-    addLocalDrawEvent && addLocalDrawEvent(segment);
-    sendDrawEvent(segment);
-    rafIdRef.current = null;
-  }, [addLocalDrawEvent, sendDrawEvent, drawLocalSegment]);
-
-  const queueSegment = useCallback((segment) => {
-    pendingSegmentRef.current = segment;
-    if (!rafIdRef.current) {
-      rafIdRef.current = requestAnimationFrame(flushPendingSegment);
-    }
-  }, [flushPendingSegment]);
+  };
 
   const startDrawing = (e) => {
     // capture pointer so we continue receiving events even if pointer leaves canvas
@@ -195,13 +170,16 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
         color: tool === 'eraser' ? backgroundColor : color,
         lineWidth: lineWidth
       };
-      queueSegment(dotPayload);
+      drawLocalSegment(dotPayload);
+      // Keep local history in sync so redraw effect doesn't erase the dot before server echo
+      addLocalDrawEvent && addLocalDrawEvent(dotPayload);
+      sendDrawEvent(dotPayload);
     } else {
       // Shapes: no immediate draw, prepare overlay
       const overlay = overlayRef.current;
       if (overlay) {
         const octx = overlay.getContext('2d');
-        octx.clearRect(0, 0, 900, 600);
+        octx.clearRect(0, 0, 1200, 700);
       }
       // Remember where the shape started
       shapeStartRef.current = pos;
@@ -228,7 +206,10 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
         color: tool === 'eraser' ? backgroundColor : color,
         lineWidth: lineWidth
       };
-      queueSegment(payload);
+      drawLocalSegment(payload);
+      // Add to local history immediately so re-render preserves what user sees
+      addLocalDrawEvent && addLocalDrawEvent(payload);
+      sendDrawEvent(payload);
       lastPosRef.current = newPos;
       return;
     }
@@ -236,7 +217,7 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     const overlay = overlayRef.current;
     if (!overlay) return;
     const octx = overlay.getContext('2d');
-    octx.clearRect(0, 0, 900, 600);
+    octx.clearRect(0, 0, 1200, 700);
     const start = shapeStartRef.current || newPos;
     const preview = { x1: start.x, y1: start.y, x2: newPos.x, y2: newPos.y, color, lineWidth };
     if (tool === 'line') drawLineShape(octx, preview);
@@ -248,20 +229,17 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
   const stopDrawing = (e) => {
     setIsDrawing(false);
     try { e && e.target.releasePointerCapture && e.target.releasePointerCapture(e.pointerId); } catch (err) {}
-    const end = e ? getPointerPos(e) : (lastPosRef.current || shapeStartRef.current);
+  const end = e ? getPointerPos(e) : (lastPosRef.current || shapeStartRef.current);
     const start = shapeStartRef.current;
     lastPosRef.current = null;
     if (tool === 'pen' || tool === 'eraser') {
-      if (pendingSegmentRef.current) {
-        flushPendingSegment();
-      }
       shapeStartRef.current = null;
       return;
     }
     const overlay = overlayRef.current;
     if (overlay) {
       const octx = overlay.getContext('2d');
-      octx.clearRect(0, 0, 900, 600);
+      octx.clearRect(0, 0, 1200, 700);
     }
     if (!start || !end) {
       shapeStartRef.current = null;
@@ -288,14 +266,14 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     const overlay = overlayRef.current;
     if (!overlay) return;
     const octx = overlay.getContext('2d');
-    octx.clearRect(0, 0, 900, 600);
+    octx.clearRect(0, 0, 1200, 700);
     if (!previewShape) return;
     const t = previewShape.type || '';
     const seg = previewShape;
     if (t.endsWith('line')) drawLineShape(octx, seg);
     else if (t.endsWith('rect')) drawRectShape(octx, seg);
     else if (t.endsWith('circle')) drawCircleShape(octx, seg);
-  }, [previewShape, drawLineShape, drawRectShape, drawCircleShape]);
+  }, [previewShape]);
 
   // --- Toolbar Handlers ---
   const handleClear = () => {
@@ -337,7 +315,7 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
           />
           <span>{lineWidth}</span>
         </div>
-
+      
         <div className="tool-group">
           <label htmlFor="bg-color-picker">Board BG:</label>
           <input
@@ -347,34 +325,36 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
             onChange={(e) => setBackgroundColor(e.target.value)}
           />
         </div>
-        <button className={tool==='pen'?'active':''} onClick={() => setTool('pen')}>Pen</button>
-        <button className={tool==='line'?'active':''} onClick={() => setTool('line')}>Line</button>
-        <button className={tool==='rect'?'active':''} onClick={() => setTool('rect')}>Rectangle</button>
-        <button className={tool==='circle'?'active':''} onClick={() => setTool('circle')}>Circle</button>
-        <button className={tool==='eraser'?'active':''} onClick={() => setTool('eraser')}>Eraser</button>
+  <button className={tool==='pen'?'active':''} onClick={() => setTool('pen')}>Pen</button>
+  <button className={tool==='line'?'active':''} onClick={() => setTool('line')}>Line</button>
+  <button className={tool==='rect'?'active':''} onClick={() => setTool('rect')}>Rectangle</button>
+  <button className={tool==='circle'?'active':''} onClick={() => setTool('circle')}>Circle</button>
+  <button className={tool==='eraser'?'active':''} onClick={() => setTool('eraser')}>Eraser</button>
         <button onClick={handleClear}>Clear All</button>
       </div>
       <div className="canvas-stage">
-        <canvas
-          ref={canvasRef}
-          width={900}
-          height={600}
-          className="whiteboard-canvas"
-          // Pointer events for cross-device input
-          onPointerDown={startDrawing}
-          onPointerMove={draw}
-          onPointerUp={stopDrawing}
-          onPointerLeave={stopDrawing}
-        />
-        <canvas
-          ref={overlayRef}
-          width={900}
-          height={600}
-          className="overlay-canvas"
-        />
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+          <canvas
+            ref={canvasRef}
+            width={1200}
+            height={700}
+            className="whiteboard-canvas"
+            // Pointer events for cross-device input
+            onPointerDown={startDrawing}
+            onPointerMove={draw}
+            onPointerUp={stopDrawing}
+            onPointerLeave={stopDrawing}
+          />
+          <canvas
+            ref={overlayRef}
+            width={1200}
+            height={700}
+            className="overlay-canvas"
+          />
+        </div>
       </div>
     </div>
   );
 }
 
-export default memo(Canvas);
+export default Canvas;

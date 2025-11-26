@@ -38,26 +38,10 @@
   border: 1px solid #ccc;
 }
 
-.form-group select {
-  padding: 10px 12px;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background-color: #ffffff;
-  cursor: pointer;
-}
-
 .error-message {
   color: #d93025;
   font-size: 0.9rem;
   text-align: left;
-}
-
-.info-message {
-  color: #1f2937;
-  font-size: 0.9rem;
-  text-align: left;
-  font-style: italic;
 }
 
 .btn-primary {
@@ -86,46 +70,5 @@
 }
 
 .btn-secondary:hover {
-  text-decoration: underline;
-}
-
-.saved-session-card {
-  border: 1px solid #dbeafe;
-  background: #eff6ff;
-  padding: 16px;
-  border-radius: 10px;
-  text-align: left;
-}
-
-.saved-session-label {
-  margin: 0 0 4px 0;
-  font-weight: 600;
-  color: #1d4ed8;
-}
-
-.saved-session-meta {
-  margin: 0;
-  color: #1f2937;
-  font-size: 0.95rem;
-}
-
-.saved-session-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 12px;
-}
-
-.btn-text {
-  padding: 8px 0;
-  border: none;
-  background: transparent;
-  color: #6b7280;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.btn-text:hover {
-  color: #111827;
   text-decoration: underline;
 }

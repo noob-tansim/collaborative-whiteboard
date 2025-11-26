@@ -1,12 +1,12 @@
 # Build stage
-FROM maven:3.9.0-eclipse-temurin-17 AS builder
+FROM maven:3.9.0-eclipse-temurin-21 AS builder
 WORKDIR /app
 COPY whiteboard-app ./whiteboard-app
 WORKDIR /app/whiteboard-app
 RUN mvn clean package -DskipTests -q
 
 # Runtime stage
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 COPY --from=builder /app/whiteboard-app/target/whiteboard-app-*.jar ./app.jar
 
