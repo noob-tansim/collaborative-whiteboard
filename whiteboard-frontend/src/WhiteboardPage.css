@@ -18,6 +18,11 @@
   height: 100vh;
   background: var(--whiteboard-bg);
   overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.whiteboard-container.dark-mode {
+  background: #1a1a1a;
 }
 
 /* Main Content Area */
@@ -38,6 +43,12 @@
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   z-index: 10;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.whiteboard-container.dark-mode .channel-header {
+  background: #2f3136;
+  border-bottom: 1px solid #202225;
 }
 
 .channel-info {
@@ -57,6 +68,11 @@
   margin: 0;
   color: #1d1d1f;
   text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+.whiteboard-container.dark-mode .channel-title {
+  color: #ffffff;
 }
 
 .header-actions {
@@ -74,6 +90,12 @@
   padding: 8px 16px;
   background: #f5f5f7;
   border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.whiteboard-container.dark-mode .connection-status {
+  background: #202225;
+  color: #b9bbbe;
 }
 
 .status-indicator {
@@ -105,6 +127,42 @@
 
 .status-text {
   font-weight: 600;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px;
+  background: #ffd60a;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 12px rgba(255, 214, 10, 0.35);
+}
+
+.dark-mode-toggle:hover {
+  background: #ffc300;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(255, 214, 10, 0.45);
+}
+
+.dark-mode-toggle:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(255, 214, 10, 0.3);
+}
+
+.whiteboard-container.dark-mode .dark-mode-toggle {
+  background: #4a4d52;
+  color: #ffd60a;
+}
+
+.whiteboard-container.dark-mode .dark-mode-toggle:hover {
+  background: #5a5d62;
 }
 
 /* Logout Button in Header */

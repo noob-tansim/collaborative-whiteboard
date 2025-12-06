@@ -1,5 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './Canvas.css';
+import { FaPen, FaEraser, FaMinus, FaSquare, FaCircle, FaTrash, FaFileDownload, FaFont } from 'react-icons/fa';
+import jsPDF from 'jspdf';
+import toast, { Toaster } from 'react-hot-toast';
 
 function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) {
   const canvasRef = useRef(null);
@@ -12,7 +15,11 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
   const [color, setColor] = useState('#000000');
   const [lineWidth, setLineWidth] = useState(5);
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
-  const [tool, setTool] = useState('pen'); // 'pen' | 'eraser' | 'line' | 'rect' | 'circle'
+  const [tool, setTool] = useState('pen'); // 'pen' | 'eraser' | 'line' | 'rect' | 'circle' | 'text'
+  const [showExportMenu, setShowExportMenu] = useState(false);
+  const [showTextModal, setShowTextModal] = useState(false);
+  const [textInput, setTextInput] = useState('');
+  const [textPosition, setTextPosition] = useState(null);
 
   // This effect is for REDRAWING when remote events come in
   useEffect(() => {
@@ -37,6 +44,11 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
         drawRectShape(ctx, event);
       } else if (event.type === 'shape-circle') {
         drawCircleShape(ctx, event);
+      } else if (event.type === 'text') {
+        // Draw text events
+        ctx.font = `${event.fontSize || 20}px Arial`;
+        ctx.fillStyle = event.color;
+        ctx.fillText(event.text, event.x, event.y);
       } else if (event.type === 'clear') {
         // Already cleared above by state reset, keep background
       }
@@ -275,6 +287,83 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
     else if (t.endsWith('circle')) drawCircleShape(octx, seg);
   }, [previewShape]);
 
+  // --- Text Tool Handlers ---
+  const handleCanvasClick = (e) => {
+    // Close export menu when clicking canvas
+    if (showExportMenu) {
+      setShowExportMenu(false);
+    }
+    
+    if (tool === 'text' && !isDrawing) {
+      const pos = getPointerPos(e);
+      setTextPosition(pos);
+      setShowTextModal(true);
+    }
+  };
+
+  const handleTextSubmit = () => {
+    if (!textInput.trim() || !textPosition) return;
+    
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    
+    // Draw text on canvas
+    ctx.font = `${lineWidth * 4}px Arial`;
+    ctx.fillStyle = color;
+    ctx.fillText(textInput, textPosition.x, textPosition.y);
+    
+    // Create a text event to send to other users
+    const textPayload = {
+      type: 'text',
+      text: textInput,
+      x: textPosition.x,
+      y: textPosition.y,
+      color: color,
+      fontSize: lineWidth * 4
+    };
+    
+    addLocalDrawEvent && addLocalDrawEvent(textPayload);
+    sendDrawEvent(textPayload);
+    
+    // Reset
+    setTextInput('');
+    setShowTextModal(false);
+    setTextPosition(null);
+    toast.success('Text added!');
+  };
+
+  // --- Export Handlers ---
+  const handleExportPNG = async () => {
+    try {
+      const canvas = canvasRef.current;
+      const dataUrl = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.download = `whiteboard-${Date.now()}.png`;
+      link.href = dataUrl;
+      link.click();
+      toast.success('Exported as PNG!');
+    } catch (error) {
+      toast.error('Export failed!');
+    }
+  };
+
+  const handleExportPDF = async () => {
+    try {
+      const canvas = canvasRef.current;
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF({
+        orientation: 'landscape',
+        unit: 'px',
+        format: [1200, 700]
+      });
+      pdf.addImage(imgData, 'PNG', 0, 0, 1200, 700);
+      pdf.save(`whiteboard-${Date.now()}.pdf`);
+      toast.success('Exported as PDF!');
+    } catch (error) {
+      toast.error('Export failed!');
+    }
+  };
+
   // --- Toolbar Handlers ---
   const handleClear = () => {
     // Immediate local clear via sending clear event; parent now clears state instantly
@@ -292,6 +381,7 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
 
   return (
     <div className="canvas-container">
+      <Toaster position="top-right" />
       <div className="canvas-toolbar">
         <div className="tool-group">
           <label htmlFor="color-picker">Color:</label>
@@ -310,7 +400,6 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
             min="1"
             max="30"
             value={lineWidth}
-            // THIS IS THE FIX: Convert the string value to an integer
             onChange={(e) => setLineWidth(parseInt(e.target.value, 10))}
           />
           <span>{lineWidth}</span>
@@ -325,13 +414,73 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
             onChange={(e) => setBackgroundColor(e.target.value)}
           />
         </div>
-  <button className={tool==='pen'?'active':''} onClick={() => setTool('pen')}>Pen</button>
-  <button className={tool==='line'?'active':''} onClick={() => setTool('line')}>Line</button>
-  <button className={tool==='rect'?'active':''} onClick={() => setTool('rect')}>Rectangle</button>
-  <button className={tool==='circle'?'active':''} onClick={() => setTool('circle')}>Circle</button>
-  <button className={tool==='eraser'?'active':''} onClick={() => setTool('eraser')}>Eraser</button>
-        <button onClick={handleClear}>Clear All</button>
+
+        <div className="tool-buttons">
+          <button 
+            className={tool === 'pen' ? 'active' : ''} 
+            onClick={() => setTool('pen')}
+            title="Pen"
+          >
+            <FaPen />
+          </button>
+          <button 
+            className={tool === 'line' ? 'active' : ''} 
+            onClick={() => setTool('line')}
+            title="Line"
+          >
+            <FaMinus />
+          </button>
+          <button 
+            className={tool === 'rect' ? 'active' : ''} 
+            onClick={() => setTool('rect')}
+            title="Rectangle"
+          >
+            <FaSquare />
+          </button>
+          <button 
+            className={tool === 'circle' ? 'active' : ''} 
+            onClick={() => setTool('circle')}
+            title="Circle"
+          >
+            <FaCircle />
+          </button>
+          <button 
+            className={tool === 'text' ? 'active' : ''} 
+            onClick={() => setTool('text')}
+            title="Text"
+          >
+            <FaFont />
+          </button>
+          <button 
+            className={tool === 'eraser' ? 'active' : ''} 
+            onClick={() => setTool('eraser')}
+            title="Eraser"
+          >
+            <FaEraser />
+          </button>
+        </div>
+
+        <button onClick={handleClear} className="clear-btn" title="Clear All">
+          <FaTrash /> Clear
+        </button>
+
+        <button 
+          onClick={handleExportPNG} 
+          className="export-png-btn"
+          title="Export as PNG"
+        >
+          <FaFileDownload /> PNG
+        </button>
+
+        <button 
+          onClick={handleExportPDF} 
+          className="export-pdf-btn"
+          title="Export as PDF"
+        >
+          <FaFileDownload /> PDF
+        </button>
       </div>
+
       <div className="canvas-stage">
         <div style={{ position: 'relative', display: 'inline-block' }}>
           <canvas
@@ -339,11 +488,11 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
             width={1200}
             height={700}
             className="whiteboard-canvas"
-            // Pointer events for cross-device input
             onPointerDown={startDrawing}
             onPointerMove={draw}
             onPointerUp={stopDrawing}
             onPointerLeave={stopDrawing}
+            onClick={handleCanvasClick}
           />
           <canvas
             ref={overlayRef}
@@ -353,6 +502,27 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent }) 
           />
         </div>
       </div>
+
+      {/* Text Input Modal */}
+      {showTextModal && (
+        <div className="text-modal-backdrop" onClick={() => setShowTextModal(false)}>
+          <div className="text-modal" onClick={(e) => e.stopPropagation()}>
+            <h3>Add Text</h3>
+            <input
+              type="text"
+              value={textInput}
+              onChange={(e) => setTextInput(e.target.value)}
+              placeholder="Enter text..."
+              autoFocus
+              onKeyPress={(e) => e.key === 'Enter' && handleTextSubmit()}
+            />
+            <div className="text-modal-buttons">
+              <button onClick={handleTextSubmit}>Add</button>
+              <button onClick={() => setShowTextModal(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

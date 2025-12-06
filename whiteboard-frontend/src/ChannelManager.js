@@ -9,7 +9,8 @@ function ChannelManager({
   channels, 
   onChannelSelect,
   onChannelCreate,
-  onLogout 
+  onLogout,
+  darkMode 
 }) {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [modalStep, setModalStep] = useState(1); // 1: server info, 2: channel type, 3: channel name
@@ -75,7 +76,7 @@ function ChannelManager({
   return (
     <>
       <motion.div 
-        className={`channel-sidebar ${isCollapsed ? 'collapsed' : ''}`}
+        className={`channel-sidebar ${isCollapsed ? 'collapsed' : ''} ${darkMode ? 'dark-mode' : ''}`}
         initial={{ x: -300 }}
         animate={{ x: 0 }}
         transition={{ type: 'spring', stiffness: 100 }}

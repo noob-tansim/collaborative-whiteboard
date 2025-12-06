@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Client } from '@stomp/stompjs'; 
 import SockJS from 'sockjs-client/dist/sockjs';
 import './WhiteboardPage.css';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 // Import our components
 import Canvas from './Canvas';
@@ -18,6 +19,7 @@ function WhiteboardPage({ session, onLogout, onSessionUpdate }) {
   const [chatMessages, setChatMessages] = useState([]);
   const [previewShape, setPreviewShape] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   
   // Channel management state
   const [channels, setChannels] = useState([
@@ -288,7 +290,7 @@ function WhiteboardPage({ session, onLogout, onSessionUpdate }) {
   };
 
   return (
-    <div className="whiteboard-container">
+    <div className={`whiteboard-container ${darkMode ? 'dark-mode' : ''}`}>
       <ChannelManager
         sessionName={sessionName}
         userName={userName}
@@ -297,6 +299,7 @@ function WhiteboardPage({ session, onLogout, onSessionUpdate }) {
         onChannelSelect={handleChannelSelect}
         onChannelCreate={handleChannelCreate}
         onLogout={onLogout}
+        darkMode={darkMode}
       />
 
       <div className="main-content">
@@ -314,6 +317,13 @@ function WhiteboardPage({ session, onLogout, onSessionUpdate }) {
                 {isConnected ? 'Connected' : 'Disconnected'}
               </span>
             </div>
+            <button 
+              className="dark-mode-toggle" 
+              onClick={() => setDarkMode(!darkMode)}
+              title="Toggle Dark Mode"
+            >
+              {darkMode ? <FaSun /> : <FaMoon />}
+            </button>
             <button className="logout-btn-header" onClick={onLogout}>
               <span className="logout-icon">⏏</span>
               <span className="logout-text">Logout</span>
