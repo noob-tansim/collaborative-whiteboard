@@ -2,3 +2,1274 @@
 2025-12-07 05:43:16 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
 2025-12-07 05:43:16 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
 2025-12-07 05:43:16 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:16 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:16 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:16 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:16 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:17 [MessageBroker-6] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 7 total, 0 closed abnormally (0 connect failure, 0 send limit, 6 transport error)], stompSubProtocol[processed CONNECT(7)-CONNECTED(7)-DISCONNECT(1)], stompBrokerRelay[null], inboundChannel[pool size = 23, active threads = 0, queued tasks = 0, completed tasks = 102], outboundChannel[pool size = 10, active threads = 0, queued tasks = 0, completed tasks = 25], sockJsScheduler[pool size = 12, active threads = 2, queued tasks = 1, completed tasks = 115]
+2025-12-07 05:43:17 [MessageBroker-11] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Closed 7 sessions: [xluvucel, mcjxomkt, vj1x1r33, gdjchx02, 3hcy2b0x, wvor3cco, 2vevxx3o]
+2025-12-07 05:43:20 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:20 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:20 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:20 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:20 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:20 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:20 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:20 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:24 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:24 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:24 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:24 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:24 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:24 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:24 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:24 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:25 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3d17h58m57s532ms208µs500ns).
+2025-12-07 05:43:26 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:26 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:26 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:26 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:26 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:26 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:26 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:26 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:28 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:28 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:28 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:28 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:28 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:28 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:28 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:28 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:30 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:30 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:30 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:30 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:30 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:30 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:30 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:30 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:32 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:32 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:32 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:32 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:32 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:32 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:32 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:32 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:34 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:34 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:34 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:34 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:34 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:34 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:34 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:34 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:36 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:36 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:36 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:36 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:36 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:36 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:36 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:36 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:38 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:38 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:38 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:38 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:38 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:38 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:38 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:38 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:40 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:40 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:40 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:40 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:40 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:40 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:40 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:40 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:42 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:42 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:42 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:42 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:42 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:42 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:42 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:42 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:44 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:44 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:44 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:44 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:44 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:44 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:44 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:44 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:47 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:47 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:47 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:47 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:47 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:47 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:47 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:47 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:49 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:49 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:49 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:49 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:49 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:49 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:49 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:49 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:51 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:51 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:51 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:51 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:51 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:51 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:51 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:51 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:53 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:53 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:53 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:53 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:53 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:53 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:53 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:53 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:54 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:54 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:54 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:54 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:55 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:55 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:55 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:55 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:56 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:56 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:56 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:56 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:56 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws/info?t=1765064636963", parameters={masked}
+2025-12-07 05:43:56 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:56 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws/info?t=1765064636963
+2025-12-07 05:43:56 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-07 05:43:57 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws/703/b5kxtgxv/websocket", parameters={}
+2025-12-07 05:43:57 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:57 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws/703/b5kxtgxv/websocket
+2025-12-07 05:43:57 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 101 SWITCHING_PROTOCOLS
+2025-12-07 05:43:57 [http-nio-8081-exec-8] DEBUG o.s.w.s.h.LoggingWebSocketHandlerDecorator - New WebSocketServerSockJsSession[id=b5kxtgxv]
+2025-12-07 05:43:57 [clientInboundChannel-79] DEBUG o.s.m.s.b.SimpleBrokerMessageHandler - Processing CONNECT session=b5kxtgxv
+2025-12-07 05:43:57 [clientInboundChannel-55] DEBUG o.s.m.s.b.SimpleBrokerMessageHandler - Processing SUBSCRIBE /topic/chat/sda/general id=sub-1 session=b5kxtgxv
+2025-12-07 05:43:57 [clientInboundChannel-82] DEBUG o.s.m.s.b.SimpleBrokerMessageHandler - Processing SUBSCRIBE /topic/whiteboard/sda/general id=sub-0 session=b5kxtgxv
+2025-12-07 05:43:57 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:57 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:57 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:57 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:57 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:57 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:57 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:57 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:57 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/sessions/sda/channels/general/shapes", parameters={}
+2025-12-07 05:43:57 [http-nio-8081-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.masterwayne.whiteboard_app.controller.SessionController#getShapes(String, String)
+2025-12-07 05:43:57 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - select ws1_0.id,c1_0.session_id,c1_0.id,c1_0.channel_name,ws1_0.manager_name,ws1_0.session_name from sessions ws1_0 left join channels c1_0 on ws1_0.id=c1_0.session_id where ws1_0.session_name=?
+2025-12-07 05:43:57 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - select p1_0.session_id,p1_0.id,p1_0.name from participants p1_0 where p1_0.session_id=?
+2025-12-07 05:43:57 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - select cm1_0.channel_id,cm1_0.content,cm1_0.id,cm1_0.sender_name,cm1_0.timestamp from channel_chat_messages cm1_0 where cm1_0.channel_id=?
+2025-12-07 05:43:57 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - select s1_0.channel_id,s1_0.color,s1_0.line_width,s1_0.type,s1_0.x1,s1_0.x2,s1_0.y1,s1_0.y2 from channel_shapes s1_0 where s1_0.channel_id=?
+2025-12-07 05:43:57 [http-nio-8081-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-07 05:43:57 [http-nio-8081-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]]
+2025-12-07 05:43:57 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-07 05:43:57 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/sessions/sda/channels/general/chat", parameters={}
+2025-12-07 05:43:57 [http-nio-8081-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.masterwayne.whiteboard_app.controller.SessionController#getChat(String, String)
+2025-12-07 05:43:57 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - select ws1_0.id,c1_0.session_id,c1_0.id,c1_0.channel_name,ws1_0.manager_name,ws1_0.session_name from sessions ws1_0 left join channels c1_0 on ws1_0.id=c1_0.session_id where ws1_0.session_name=?
+2025-12-07 05:43:57 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - select p1_0.session_id,p1_0.id,p1_0.name from participants p1_0 where p1_0.session_id=?
+2025-12-07 05:43:57 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - select cm1_0.channel_id,cm1_0.content,cm1_0.id,cm1_0.sender_name,cm1_0.timestamp from channel_chat_messages cm1_0 where cm1_0.channel_id=?
+2025-12-07 05:43:57 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - select s1_0.channel_id,s1_0.color,s1_0.line_width,s1_0.type,s1_0.x1,s1_0.x2,s1_0.y1,s1_0.y2 from channel_shapes s1_0 where s1_0.channel_id=?
+2025-12-07 05:43:57 [http-nio-8081-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-07 05:43:57 [http-nio-8081-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[ChatMessage(id=82914b03-1a8a-4819-a604-56b8fa63b66f, senderName=ads, content=oihioh4, timestamp=202 (truncated)...]
+2025-12-07 05:43:57 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-07 05:43:58 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:58 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:58 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:58 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:43:59 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:43:59 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:43:59 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:43:59 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:00 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:00 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:00 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:00 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:01 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:01 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:01 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:01 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:01 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:01 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:01 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:01 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:02 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:02 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:02 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:02 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:03 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:03 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:03 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:03 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:04 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:04 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:04 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:04 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:05 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:05 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:05 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:05 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:05 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:05 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:05 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:05 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:06 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:06 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:06 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:06 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:07 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:07 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:07 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:07 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:08 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:08 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:08 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:08 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:09 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:09 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:09 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:09 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:09 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:09 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:09 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:09 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:11 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:11 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:11 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:11 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:11 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:11 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:11 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:11 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:12 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:12 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:12 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:12 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:13 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:13 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:13 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:13 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:13 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:13 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:13 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:13 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:15 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:15 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:15 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:15 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:15 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:15 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:15 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:15 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:16 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:16 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:16 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:16 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:17 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:17 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:17 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:17 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:17 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:17 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:17 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:17 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:19 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:19 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:19 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:19 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:19 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:19 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:19 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:19 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:20 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:20 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:20 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:20 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:21 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:21 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:21 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:21 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:21 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:21 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:21 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:21 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:23 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:23 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:23 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:23 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:23 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:23 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:23 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:23 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:24 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:24 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:24 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:24 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:25 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:25 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:25 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:25 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:26 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:26 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:26 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:26 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:27 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:27 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:27 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:27 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:27 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:27 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:27 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:27 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:28 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:28 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:28 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:28 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:29 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:29 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:29 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:29 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:30 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:30 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:30 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:30 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:31 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:31 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:31 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:31 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:31 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:31 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:31 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:31 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:32 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:32 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:32 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:32 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:33 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:33 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:33 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:33 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:34 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:34 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:34 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:34 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:35 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:35 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:35 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:35 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:35 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:35 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:35 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:35 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:37 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:37 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:37 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:37 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:37 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:37 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:37 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:37 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:38 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:38 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:38 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:38 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:39 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:39 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:39 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:39 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:39 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:39 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:39 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:39 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:41 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:41 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:41 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:41 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:41 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:41 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:41 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:41 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:42 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:42 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:42 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:42 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:43 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:43 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:43 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:43 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:43 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:43 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:43 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:43 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:45 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:45 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:45 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:45 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:45 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:45 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:45 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:45 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:46 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:46 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:46 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:46 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:47 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:47 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:47 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:47 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:47 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:47 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:47 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:47 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:49 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:49 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:49 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:49 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:49 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:49 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:49 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:49 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:50 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:50 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:50 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:50 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:51 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:51 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:51 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:51 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:51 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:51 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:51 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:51 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:53 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:53 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:53 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:53 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:53 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:53 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:53 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:53 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:54 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:54 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:54 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:54 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:55 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:55 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:55 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:55 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:56 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:56 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:56 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:56 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:57 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:57 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:57 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:57 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:57 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:57 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:57 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:57 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:58 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:58 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:58 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:58 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:44:59 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:44:59 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:44:59 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:44:59 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:00 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:00 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:00 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:00 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:01 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:01 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:01 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:01 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:01 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:01 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:01 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:01 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:03 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:03 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:03 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:03 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:03 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:03 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:03 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:03 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:04 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:04 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:04 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:04 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:05 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:05 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:05 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:05 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:05 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:05 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:05 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:05 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:06 [clientInboundChannel-83] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Searching methods to handle SEND /app/draw/sda/general session=b5kxtgxv, lookupDestination='/draw/sda/general'
+2025-12-07 05:45:06 [clientInboundChannel-83] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Invoking WebSocketController#handleDrawEvent[3 args]
+2025-12-07 05:45:06 [clientInboundChannel-83] DEBUG c.m.w.service.WhiteboardService - Submitting shape for async persistence: session='sda', channel='general', type='shape-circle'
+2025-12-07 05:45:06 [clientInboundChannel-83] DEBUG o.s.m.s.b.SimpleBrokerMessageHandler - Processing MESSAGE destination=/topic/whiteboard/sda/general session=b5kxtgxv payload={"type":"shape-circle","x1":537.6000366210938,"y1":387.0000190734863,"x2":613.60...(truncated)
+2025-12-07 05:45:06 [clientInboundChannel-83] DEBUG o.s.m.s.b.SimpleBrokerMessageHandler - Broadcasting to 1 sessions.
+2025-12-07 05:45:06 [WhiteboardPersistenceWorker] DEBUG org.hibernate.SQL - select ws1_0.id,ws1_0.manager_name,ws1_0.session_name from sessions ws1_0 where ws1_0.session_name=?
+2025-12-07 05:45:06 [WhiteboardPersistenceWorker] DEBUG org.hibernate.SQL - select c1_0.session_id,c1_0.id,c1_0.channel_name from channels c1_0 where c1_0.session_id=?
+2025-12-07 05:45:06 [WhiteboardPersistenceWorker] DEBUG org.hibernate.SQL - select s1_0.channel_id,s1_0.color,s1_0.line_width,s1_0.type,s1_0.x1,s1_0.x2,s1_0.y1,s1_0.y2 from channel_shapes s1_0 where s1_0.channel_id=?
+2025-12-07 05:45:06 [WhiteboardPersistenceWorker] DEBUG org.hibernate.SQL - insert into channel_shapes (channel_id,color,line_width,type,x1,x2,y1,y2) values (?,?,?,?,?,?,?,?)
+2025-12-07 05:45:06 [WhiteboardPersistenceWorker] DEBUG c.m.w.persistence.PersistenceWorker - Persistence batch completed: 1 tasks
+2025-12-07 05:45:07 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:07 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:07 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:07 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:07 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:07 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:07 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:07 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:08 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:08 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:08 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:08 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:09 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:09 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:09 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:09 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:09 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:09 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:09 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:09 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:12 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:12 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:12 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:12 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:12 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:12 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:12 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:12 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:13 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:13 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:13 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:13 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:13 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:13 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:13 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:13 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:14 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:14 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:14 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:14 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:15 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:15 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:15 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:15 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:16 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:16 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:16 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:16 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:17 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:17 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:17 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:17 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:17 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:17 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:17 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:17 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:18 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:18 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:18 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:18 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:19 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:19 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:19 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:19 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:20 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:20 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:20 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:20 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:21 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:21 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:21 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:21 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:21 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:21 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:21 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:21 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:23 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:23 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:23 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:23 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:23 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:23 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:23 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:23 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:24 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:24 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:24 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:24 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:25 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:25 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:25 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:25 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:25 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:25 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:25 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:25 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:27 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:27 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:27 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:27 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:27 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:27 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:27 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:27 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:28 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:28 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:28 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:28 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:29 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:29 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:29 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:29 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:29 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:29 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:29 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:29 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:31 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:31 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:31 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:31 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:31 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:31 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:31 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:31 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:33 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:33 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:33 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:33 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:33 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:33 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:33 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:33 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:35 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:35 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:35 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:35 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:35 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:35 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:35 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:35 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:37 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:37 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:37 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:37 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:37 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:37 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:37 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:37 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:39 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:39 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:39 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:39 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:39 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:39 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:39 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:39 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:41 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:41 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:41 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:41 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:41 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:41 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:41 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:41 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:43 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:43 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:43 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:43 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:43 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:43 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:43 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:43 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:45 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:45 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:45 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:45 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:45 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:45 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:45 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:45 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:47 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:47 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:47 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:47 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:47 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:47 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:47 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:47 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:49 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:49 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:49 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:49 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:49 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:49 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:49 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:49 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:51 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:51 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:51 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:51 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:51 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:51 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:51 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:51 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:53 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:53 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:53 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:53 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:53 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:53 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:53 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:53 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:55 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:55 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:55 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:55 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:55 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:55 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:55 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:55 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:57 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:57 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:57 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:57 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:57 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:57 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:57 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:57 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:59 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:59 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:59 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:59 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:45:59 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:45:59 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:45:59 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:45:59 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:01 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:01 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:01 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:01 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:01 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:01 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:01 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:01 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:03 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:03 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:03 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:03 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:03 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:03 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:03 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:03 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:05 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:05 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:05 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:05 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:05 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:05 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:05 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:05 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:07 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:07 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:07 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:07 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:07 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:07 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:07 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:07 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:09 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:09 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:09 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:09 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:09 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:09 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:09 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:09 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:11 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:11 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:11 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:11 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:11 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:11 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:11 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:11 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:13 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:13 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:13 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:13 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:13 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:13 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:13 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:13 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:15 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:15 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:15 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:15 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:15 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:15 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:15 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:15 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:16 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:16 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:16 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:16 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:17 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:17 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:17 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:17 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:18 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:18 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:18 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:18 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:19 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:19 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:19 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:19 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:20 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:20 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:20 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:20 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:21 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:21 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:21 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:21 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:22 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:22 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:22 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:22 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:23 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:23 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:23 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:23 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:24 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:24 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:24 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:24 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:25 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:25 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:25 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:25 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:26 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:26 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:26 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:26 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:27 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:27 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:27 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:27 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:28 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:28 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:28 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:28 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:29 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:29 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:29 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:29 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:30 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:30 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:30 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:30 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:31 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:31 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:31 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:31 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:32 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:32 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:32 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:32 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:33 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:33 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:33 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:33 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:34 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:34 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:34 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:34 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:35 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:35 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:35 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:35 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:36 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:36 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:36 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:36 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:37 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:37 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:37 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:37 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:38 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:38 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:38 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:38 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:39 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:39 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:39 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:39 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:40 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:40 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:40 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:40 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:41 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:41 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:41 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:41 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:42 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:42 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:42 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:42 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:43 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:43 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:43 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:43 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:44 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:44 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:44 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:44 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:45 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:45 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:45 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:45 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:46 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:46 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:46 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:46 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:47 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:47 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:47 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:47 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:48 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:48 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:48 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:48 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:49 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:49 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:49 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:49 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:50 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:50 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:50 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:50 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:51 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:51 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:51 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:51 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:52 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:52 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:52 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:52 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:53 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:53 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:53 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:53 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:54 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:54 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:54 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:54 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:55 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:55 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:55 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:55 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:56 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:56 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:56 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:56 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:57 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:57 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:57 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:57 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:58 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:58 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:58 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:58 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:46:59 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:46:59 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:46:59 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:46:59 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:00 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:00 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:00 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:00 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:01 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:01 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:01 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:01 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:02 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:02 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:02 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:02 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:03 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:03 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:03 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:03 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:04 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:04 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:04 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:04 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:05 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:05 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:05 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:05 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:06 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:06 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:06 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:06 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:07 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:07 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:07 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:07 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:08 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:08 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:08 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:08 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:09 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:09 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:09 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:09 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:10 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:10 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:10 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:10 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:11 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:11 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:11 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:11 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:12 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:12 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:12 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:12 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:13 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:13 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:13 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:13 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:14 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:14 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:14 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:14 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:15 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:15 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:15 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:15 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:16 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:16 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:16 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:16 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:17 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:17 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:17 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:17 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:18 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:18 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:18 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:18 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:19 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:19 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:19 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:19 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:20 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:20 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:20 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:20 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:21 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:21 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:21 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:21 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:22 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:22 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:22 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:22 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:23 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:23 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:23 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:23 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:24 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:24 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:24 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:24 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:25 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:25 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:25 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:25 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:26 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:26 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:26 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:26 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:27 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:27 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:27 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:27 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:28 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:28 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:28 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:28 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:29 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:29 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:29 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:29 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:30 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:30 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:30 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:30 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:31 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:31 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:31 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:31 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:32 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:32 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:32 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:32 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:33 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:33 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:33 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:33 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:34 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:34 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:34 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:34 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:35 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:35 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:35 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:35 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:36 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:36 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:36 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:36 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:37 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:37 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:37 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:37 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:38 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:38 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:38 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:38 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:39 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:39 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:39 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:39 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:40 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:40 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:40 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:40 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:41 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:41 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:41 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:41 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:42 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:42 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:42 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:42 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:43 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:43 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:43 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:43 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:44 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:44 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:44 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:44 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:45 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:45 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:45 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:45 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:46 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:46 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:46 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:46 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:47 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:47 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:47 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:47 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:48 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:48 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:48 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:48 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:49 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:49 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:49 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:49 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:50 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:50 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:50 [http-nio-8081-exec-9] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:50 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:51 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:51 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:51 [http-nio-8081-exec-10] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:51 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:52 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:52 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:52 [http-nio-8081-exec-1] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:52 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:53 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:53 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:53 [http-nio-8081-exec-3] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:53 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:54 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:54 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:54 [http-nio-8081-exec-2] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:54 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:55 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:55 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:55 [http-nio-8081-exec-5] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:55 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:56 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:56 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:56 [http-nio-8081-exec-4] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:56 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:57 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:57 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:57 [http-nio-8081-exec-6] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:57 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:58 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:58 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:58 [http-nio-8081-exec-7] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:58 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:59 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/ws", parameters={}
+2025-12-07 05:47:59 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Mapped to org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@68b4e7b5
+2025-12-07 05:47:59 [http-nio-8081-exec-8] DEBUG o.s.w.s.s.t.h.DefaultSockJsService - Processing transport request: GET http://localhost:8081/ws
+2025-12-07 05:47:59 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-12-07 05:47:59 [http-nio-8081-exec-9] DEBUG o.s.w.s.h.LoggingWebSocketHandlerDecorator - Transport error in WebSocketServerSockJsSession[id=b5kxtgxv]
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:401)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:434)
+	at org.apache.tomcat.util.net.NioChannel.read(NioChannel.java:150)
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1333)
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1220)
+	at org.apache.tomcat.websocket.server.WsFrameServer.onDataAvailable(WsFrameServer.java:74)
+	at org.apache.tomcat.websocket.server.WsFrameServer.doOnDataAvailable(WsFrameServer.java:184)
+	at org.apache.tomcat.websocket.server.WsFrameServer.notifyDataAvailable(WsFrameServer.java:164)
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.upgradeDispatch(WsHttpUpgradeHandler.java:152)
+	at org.apache.coyote.http11.upgrade.UpgradeProcessorInternal.dispatch(UpgradeProcessorInternal.java:60)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:57)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-12-07 05:47:59 [http-nio-8081-exec-9] DEBUG o.s.w.s.h.LoggingWebSocketHandlerDecorator - WebSocketServerSockJsSession[id=b5kxtgxv] closed with CloseStatus[code=1006, reason=Connection reset]
+2025-12-07 05:47:59 [http-nio-8081-exec-9] DEBUG o.s.w.s.m.SubProtocolWebSocketHandler - Clearing session b5kxtgxv
+2025-12-07 05:47:59 [clientInboundChannel-87] DEBUG o.s.m.s.b.SimpleBrokerMessageHandler - Processing DISCONNECT session=b5kxtgxv
+2025-12-07 05:47:59 [clientOutboundChannel-28] DEBUG o.s.w.s.m.SubProtocolWebSocketHandler - No session for GenericMessage [payload=byte[0], headers={simpMessageType=DISCONNECT_ACK, simpDisconnectMessage=GenericMessage [payload=byte[0], headers={simpMessageType=DISCONNECT, stompCommand=DISCONNECT, simpSessionAttributes={org.springframework.messaging.simp.SimpAttributes.COMPLETED=true}, simpSessionId=b5kxtgxv}], simpSessionId=b5kxtgxv}]
