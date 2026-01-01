@@ -1,0 +1,317 @@
+:root {
+  --whiteboard-bg: #f3f4f6;
+  --header-bg: #2f3136;
+  --text-primary: #ffffff;
+  --text-secondary: #b9bbbe;
+  --accent-primary: #7289da;
+  --accent-secondary: #5865f2;
+  --status-online: #43b581;
+  --status-offline: #f04747;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --border-radius: 12px;
+}
+
+.whiteboard-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: var(--whiteboard-bg);
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.whiteboard-container.dark-mode {
+  background: #000000;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Channel Header */
+.channel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.whiteboard-container.dark-mode .channel-header {
+  background: #2f3136;
+  border-bottom: 1px solid #202225;
+}
+
+.channel-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.channel-icon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.channel-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1d1d1f;
+  text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+.whiteboard-container.dark-mode .channel-title {
+  color: #ffffff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #6e6e73;
+  padding: 8px 16px;
+  background: #f5f5f7;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.whiteboard-container.dark-mode .connection-status {
+  background: #202225;
+  color: #b9bbbe;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.connected {
+  background: var(--status-online);
+  box-shadow: 0 0 8px var(--status-online);
+}
+
+.status-indicator.disconnected {
+  background: var(--status-offline);
+  box-shadow: 0 0 8px var(--status-offline);
+  animation: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.status-text {
+  font-weight: 600;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px;
+  background: #ffd60a;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 12px rgba(255, 214, 10, 0.35);
+}
+
+.dark-mode-toggle:hover {
+  background: #ffc300;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(255, 214, 10, 0.45);
+}
+
+.dark-mode-toggle:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(255, 214, 10, 0.3);
+}
+
+.whiteboard-container.dark-mode .dark-mode-toggle {
+  background: #4a4d52;
+  color: #ffd60a;
+}
+
+.whiteboard-container.dark-mode .dark-mode-toggle:hover {
+  background: #5a5d62;
+}
+
+/* Logout Button in Header */
+.logout-btn-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 22px;
+  background: linear-gradient(135deg, #ff7a7a 0%, #ff6464 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 12px rgba(255, 100, 100, 0.35);
+  letter-spacing: 0.3px;
+}
+
+.logout-btn-header:hover {
+  background: linear-gradient(135deg, #ff6464 0%, #ff5050 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(255, 100, 100, 0.45);
+}
+
+.logout-btn-header:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(255, 100, 100, 0.3);
+}
+
+.logout-icon {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-text {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Content Area - Canvas and Chat */
+.content-area {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* When chat is minimized, don't keep an empty gap/padding for the missing column */
+.content-area.chat-hidden {
+  gap: 0;
+  padding-right: 0;
+}
+
+/* When BOTH the channel sidebar and chat are minimized, let the whiteboard use all space */
+.whiteboard-container > .channel-sidebar.collapsed + .main-content .content-area.chat-hidden {
+  padding: 0;
+}
+
+.whiteboard-area {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  min-width: 0; /* Important for flex shrinking */
+  min-height: 0; /* Important for flex child height */
+}
+
+.chat-column {
+  flex: 1;
+  display: flex;
+  position: relative;
+  min-width: 300px;
+  max-width: 400px;
+  min-height: 0;
+}
+
+.whiteboard-area.expanded {
+  flex: 1;
+}
+
+.chat-column.collapsed {
+  flex: 0;
+  min-width: 0;
+  max-width: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .content-area {
+    flex-direction: column;
+  }
+
+  .whiteboard-area {
+    min-height: 500px;
+  }
+
+  .chat-column {
+    max-width: 100%;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .channel-header {
+    padding: 12px 16px;
+  }
+
+  .channel-title {
+    font-size: 1.2rem;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .logout-text {
+    display: none;
+  }
+
+  .logout-btn-header {
+    padding: 10px;
+    min-width: auto;
+  }
+
+  .connection-status {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .status-text {
+    display: none;
+  }
+
+  .content-area {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .whiteboard-area {
+    min-height: 400px;
+  }
+}

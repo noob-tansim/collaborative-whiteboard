@@ -1,0 +1,81 @@
+version: '3.9'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: whiteboard-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-whiteboard}
+      POSTGRES_USER: ${DB_USER:-whiteboard}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-whiteboard123}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${DB_USER:-whiteboard}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - whiteboard-network
+
+  # Backend Application
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: whiteboard-backend
+    restart: unless-stopped
+    ports:
+      - "${BACKEND_PORT:-8081}:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${DB_NAME:-whiteboard}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER:-whiteboard}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-whiteboard123}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SERVER_PORT: 8081
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - whiteboard-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 40s
+      retries: 3
+
+  # Frontend Application
+  frontend:
+    build:
+      context: ./whiteboard-frontend
+      dockerfile: Dockerfile
+    container_name: whiteboard-frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-3000}:80"
+    environment:
+      REACT_APP_API_URL: http://backend:8081
+      REACT_APP_WS_URL: ws://backend:8081/ws
+      REACT_APP_ENABLE_OFFLINE: "true"
+    depends_on:
+      - backend
+    networks:
+      - whiteboard-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      start_period: 40s
+      retries: 3
+
+volumes:
+  postgres-data:
+
+networks:
+  whiteboard-network:
+    driver: bridge

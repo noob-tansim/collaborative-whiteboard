@@ -1,0 +1,22 @@
+# Root ignores
+.env
+.env.*
+
+# Runtime data/logs
+logs/
+data/
+whiteboard-app/logs/
+whiteboard-app/data/uploads/
+whiteboard-app/data/offline-persist.jsonl
+
+# Java
+**/target/
+
+# Node
+**/node_modules/
+**/build/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/

@@ -1,0 +1,440 @@
+.canvas-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.canvas-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px 12px 0 0;
+  border: 2px solid #dee2e6;
+  border-bottom: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tool-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tool-group label {
+  font-weight: 500;
+  color: #111827;
+}
+
+.tool-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tool-buttons.tool-icons button {
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  height: 52px;
+  padding: 0 10px;
+}
+
+.tool-icon-label {
+  font-size: 0.75rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.canvas-toolbar input[type="color"] {
+  width: 40px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.canvas-toolbar input[type="range"] {
+  width: 100px;
+}
+
+.canvas-toolbar button {
+  height: 40px;
+  padding: 0 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.canvas-toolbar button:hover {
+  background-color: #e9e9e9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.canvas-toolbar button.active {
+  background-color: #007aff;
+  color: #fff;
+  border-color: #007aff;
+}
+
+.clear-btn {
+  background-color: #ff3b30 !important;
+  color: white !important;
+  border-color: #ff3b30 !important;
+}
+
+.clear-btn:hover {
+  background-color: #ff2d21 !important;
+}
+
+.export-png-btn {
+  background-color: #34c759 !important;
+  color: white !important;
+  border-color: #34c759 !important;
+}
+
+.export-png-btn:hover {
+  background-color: #2db24d !important;
+}
+
+.export-pdf-btn {
+  background-color: #007aff !important;
+  color: white !important;
+  border-color: #007aff !important;
+}
+
+.export-pdf-btn:hover {
+  background-color: #0066cc !important;
+}
+
+.canvas-toolbar .tool-group button {
+  min-width: 40px;
+}
+.canvas-toolbar button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Make icon-only tool buttons square */
+.tool-buttons button {
+  width: 44px;
+  padding: 0;
+  justify-content: center;
+}
+
+/* Zoom buttons: slightly wider for text */
+.tool-group .tool-buttons button {
+  width: auto;
+  min-width: 44px;
+  padding: 0 12px;
+}
+
+.canvas-toolbar button:hover {
+  background-color: #e9e9e9;
+}
+
+.canvas-toolbar .tool-group button {
+  min-width: 60px;
+}
+
+.whiteboard-canvas {
+  background: transparent;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%3E%3Ccircle%20cx='16'%20cy='16'%20r='2'%20fill='black'/%3E%3Cpath%20d='M16%200%20V12%20M16%2020%20V32%20M0%2016%20H12%20M20%2016%20H32'%20stroke='black'%20stroke-width='2'/%3E%3C/svg%3E") 16 16, crosshair;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  display: block;
+  margin: 0 auto;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.whiteboard-canvas.hand {
+  cursor: grab;
+}
+
+/* Text tool: show I-beam cursor like a document editor */
+.whiteboard-canvas.text {
+  cursor: text !important;
+}
+
+.whiteboard-canvas.hand.panning {
+  cursor: grabbing;
+}
+
+.canvas-stage {
+  position: relative;
+  flex: 1;
+  display: block;
+  min-height: 0;
+  padding: 20px;
+  overflow: auto;
+  scroll-behavior: auto;
+  overscroll-behavior: contain;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background: linear-gradient(to bottom, #fafafa 0%, #f5f5f5 100%);
+}
+
+.canvas-stage.panning {
+  cursor: grabbing;
+}
+
+/* Custom scrollbar styling */
+.canvas-stage::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.canvas-stage::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.canvas-stage::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.canvas-stage::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.canvas-stage::-webkit-scrollbar-corner {
+  background: #f1f1f1;
+}
+
+.overlay-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.text-float-editor {
+  position: absolute;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.text-float-editor input[type="text"] {
+  width: 220px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+.text-float-cancel {
+  height: 34px;
+  width: 34px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.text-float-cancel:hover {
+  background-color: #e9e9e9;
+}
+
+.canvas-text-editor {
+  position: absolute;
+  z-index: 6;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  cursor: text;
+}
+
+.canvas-text-value {
+  white-space: pre-wrap;
+}
+
+/* Solid, non-blinking caret */
+.canvas-text-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: currentColor;
+  margin-left: 1px;
+}
+
+/* Hidden real input to capture typing (no visible box, no native blinking caret) */
+.canvas-text-editor-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.selection-actions {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  /* Let pointer events pass through so users can still click/drag the selected text. */
+  pointer-events: none;
+}
+
+.selection-actions button {
+  pointer-events: auto;
+  height: 32px;
+  padding: 0 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.selection-actions button:hover {
+  background-color: #e9e9e9;
+}
+
+.selection-actions button.active {
+  background-color: #007aff;
+  color: #fff;
+  border-color: #007aff;
+}
+
+.selected-rect-outline {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  border: 2px dashed rgba(0, 122, 255, 0.9);
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: rgba(0, 122, 255, 0.08);
+}
+
+.selected-rect-outline.dragging {
+  background: rgba(0, 122, 255, 0.06);
+}
+
+.canvas-toolbar button {
+  position: relative;
+}
+
+.canvas-toolbar button.active {
+  background-color: #007aff;
+  color: #fff;
+  border-color: #007aff;
+}
+
+/* Text Modal Styles */
+.text-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.text-modal {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.text-modal h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+}
+
+.text-modal input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.text-modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.text-modal-buttons button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.text-modal-buttons button:first-child {
+  background-color: #007aff;
+  color: white;
+}
+
+.text-modal-buttons button:first-child:hover {
+  background-color: #0066cc;
+}
+
+.text-modal-buttons button:last-child {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.text-modal-buttons button:last-child:hover {
+  background-color: #d0d0d0;
+}
