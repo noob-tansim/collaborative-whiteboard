@@ -23,7 +23,35 @@ function Chat({ chatMessages, sendChatMessage, userName, channelName, isMinimize
 
   // Auto-scroll to the bottom when new messages arrive
   useEffect(() => {
+    // Scroll immediately
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    
+    // Also scroll after a short delay to handle image loading
+    const timer = setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, [chatMessages]);
+
+  // Scroll when images load
+  useEffect(() => {
+    const handleImageLoad = () => {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const images = document.querySelectorAll('.chat-attachment-image');
+    images.forEach(img => {
+      if (!img.complete) {
+        img.addEventListener('load', handleImageLoad);
+      }
+    });
+
+    return () => {
+      images.forEach(img => {
+        img.removeEventListener('load', handleImageLoad);
+      });
+    };
   }, [chatMessages]);
 
   const handleSend = (e) => {

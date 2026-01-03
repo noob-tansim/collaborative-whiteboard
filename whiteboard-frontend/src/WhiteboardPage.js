@@ -110,6 +110,10 @@ function WhiteboardPage({ session, onLogout, onSessionUpdate }) {
     console.log('Connected to WebSocket for channel:', currentChannel);
     setIsConnected(true);
 
+    // Clear current state to prepare for new channel data
+    setChatMessages([]);
+    setDrawEvents([]);
+
     // Check if client is connected before subscribing
     if (!stompClient.current || !stompClient.current.connected) {
       console.error('STOMP client not connected');
@@ -177,12 +181,20 @@ function WhiteboardPage({ session, onLogout, onSessionUpdate }) {
       );
       if (chatResponse.ok) {
         const messages = await chatResponse.json();
-        console.log('Loaded chat history:', messages.length, 'messages:', messages);
-        console.log('Setting chat messages state with:', messages);
-        setChatMessages(messages || []);
-        console.log('Chat messages state should now be updated');
+        console.log('✅ Loaded chat history:', messages.length, 'messages');
+        if (messages && messages.length > 0) {
+          console.log('First message:', messages[0]);
+          console.log('Last message:', messages[messages.length - 1]);
+        }
+        // Ensure we set an array, even if empty
+        const messagesArray = Array.isArray(messages) ? messages : [];
+        setChatMessages(messagesArray);
+        console.log('✅ Chat messages state updated with', messagesArray.length, 'messages');
       } else {
-        console.warn('Failed to load chat messages, status:', chatResponse.status);
+        console.error('❌ Failed to load chat messages, status:', chatResponse.status);
+        const errorText = await chatResponse.text();
+        console.error('Error response:', errorText);
+        setChatMessages([]); // Set empty array on error
       }
     } catch (error) {
       console.error('Error loading history:', error);
