@@ -22,6 +22,11 @@ function WhiteboardPage({ session, onLogout, onSessionUpdate }) {
   const [darkMode, setDarkMode] = useState(false);
   const [isChatMinimized, setIsChatMinimized] = useState(false);
   
+  // Debug: Monitor chat messages changes
+  useEffect(() => {
+    console.log('chatMessages state changed, length:', chatMessages.length);
+  }, [chatMessages]);
+  
   // Channel management state
   const [channels, setChannels] = useState([
     { name: 'general', logo: '💬', type: 'public' },
@@ -172,8 +177,10 @@ function WhiteboardPage({ session, onLogout, onSessionUpdate }) {
       );
       if (chatResponse.ok) {
         const messages = await chatResponse.json();
-        console.log('Loaded chat history:', messages.length, messages);
+        console.log('Loaded chat history:', messages.length, 'messages:', messages);
+        console.log('Setting chat messages state with:', messages);
         setChatMessages(messages || []);
+        console.log('Chat messages state should now be updated');
       } else {
         console.warn('Failed to load chat messages, status:', chatResponse.status);
       }
