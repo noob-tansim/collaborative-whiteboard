@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './Canvas.css';
-import { FaPen, FaEraser, FaMinus, FaSquare, FaCircle, FaTrash, FaFileDownload, FaFont, FaHandPaper, FaRegSquare, FaPlus, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaPen, FaEraser, FaMinus, FaSquare, FaCircle, FaTrash, FaFileDownload, FaFont, FaHandPaper, FaRegSquare } from 'react-icons/fa';
 import jsPDF from 'jspdf';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -15,7 +15,6 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
   const selectDragRef = useRef(false);
   const didPanRef = useRef(false);
   const [fallbackLocalEvents, setFallbackLocalEvents] = useState([]);
-  const [canvasEpoch, setCanvasEpoch] = useState(0);
   const [isDrawing, setIsDrawing] = useState(false);
   const isDrawingRef = useRef(false); // Ref version to avoid stale closure in callbacks
   const panStartRef = useRef(null);
@@ -32,12 +31,7 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
   const CANVAS_WIDTH = 2400;
   const CANVAS_HEIGHT = 1600;
   const [baseWidth] = useState(CANVAS_WIDTH);
-  const [baseHeight] = useState(CANVAS_HEIGHT);
-
-  // --- Page Management State ---
-  const [pages, setPages] = useState([{ id: 1, events: [] }]); // Array of pages with their events
-  const [currentPage, setCurrentPage] = useState(1); // Current page number (1-indexed)
-  const MAX_PAGES = 10; // Maximum number of pages allowed
+  const [baseHeight] = useState(CANVAS_HEIGHT)
 
   // --- Toolbar State ---
   const [color, setColor] = useState('#000000');
@@ -52,101 +46,6 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
 
   // Helper to check if external buffer is used
   const hasExternalLocalBuffer = typeof addLocalDrawEvent === 'function';
-
-  // --- Page Management Functions ---
-  // Each page stores its own events independently
-  // We use a ref to track page events to avoid stale closure issues
-  const pagesRef = useRef(pages);
-  pagesRef.current = pages;
-  
-  const currentPageRef = useRef(currentPage);
-  currentPageRef.current = currentPage;
-
-  // Get current page's events for rendering
-  const getCurrentPageEvents = () => {
-    const page = pages.find(p => p.id === currentPage);
-    return page ? page.events : [];
-  };
-
-  // Add event to current page
-  const addEventToCurrentPage = (event) => {
-    if (!event) return;
-    setPages(prev => prev.map(page => 
-      page.id === currentPageRef.current 
-        ? { ...page, events: [...page.events, event] } 
-        : page
-    ));
-  };
-
-  // Clear current page events
-  const clearCurrentPageEvents = () => {
-    setPages(prev => prev.map(page => 
-      page.id === currentPageRef.current 
-        ? { ...page, events: [] } 
-        : page
-    ));
-  };
-
-  const addPage = () => {
-    console.log('addPage called, current pages:', pages.length);
-    if (pages.length >= MAX_PAGES) {
-      toast.error(`Maximum ${MAX_PAGES} pages allowed`);
-      return;
-    }
-    
-    const newPageId = pages.length + 1;
-    console.log('Creating new page with ID:', newPageId);
-    
-    setPages(prev => {
-      const newPages = [...prev, { id: newPageId, events: [] }];
-      console.log('New pages array:', newPages);
-      return newPages;
-    });
-    setCurrentPage(newPageId);
-    
-    // Force canvas redraw for new blank page
-    setTimeout(() => {
-      const canvas = canvasRef.current;
-      if (canvas) {
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = backgroundColor;
-        ctx.fillRect(0, 0, baseWidth, baseHeight);
-      }
-      setCanvasEpoch(v => v + 1);
-    }, 50);
-    
-    toast.success(`Page ${newPageId} added`);
-  };
-
-  const goToPage = (pageNum) => {
-    console.log('goToPage called:', pageNum, 'current:', currentPage, 'total pages:', pages.length);
-    if (pageNum < 1 || pageNum > pages.length) return;
-    if (pageNum === currentPage) return;
-    
-    setCurrentPage(pageNum);
-    
-    // Force canvas redraw
-    setTimeout(() => {
-      setCanvasEpoch(v => v + 1);
-    }, 50);
-    
-    toast.success(`Switched to Page ${pageNum}`);
-  };
-
-  const goToPreviousPage = () => {
-    console.log('goToPreviousPage, current:', currentPage);
-    if (currentPage > 1) {
-      goToPage(currentPage - 1);
-    }
-  };
-
-  const goToNextPage = () => {
-    console.log('goToNextPage, current:', currentPage, 'total:', pages.length);
-    if (currentPage < pages.length) {
-      goToPage(currentPage + 1);
-    }
-  };
 
   const handleTextSubmit = () => {
     if (!textPosition) return;
@@ -480,17 +379,20 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
 
   const recordLocalEvent = (evt) => {
     if (!evt) return;
-    // Always add to current page's events
-    addEventToCurrentPage(evt);
-    // Also send to external buffer if available (for WebSocket sync)
+    // Add to external buffer if available (for WebSocket sync)
     if (hasExternalLocalBuffer) {
       addLocalDrawEvent(evt);
+    } else {
+      // Use fallback local events when no external buffer
+      setFallbackLocalEvents(prev => [...prev, evt]);
     }
   };
 
   const getAllEvents = () => {
-    // Return events from the current page only
-    return getCurrentPageEvents();
+    // Combine external drawEvents with local fallback
+    const external = Array.isArray(drawEvents) ? drawEvents : [];
+    if (hasExternalLocalBuffer) return external;
+    return [...external, ...fallbackLocalEvents];
   };
 
   // If a clear happens (from us or remote), also clear the local fallback buffer.
@@ -543,35 +445,6 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
 
     const blockH = Math.max(10, lines.length * lineHeight);
     return { lines, maxW, blockH, lineHeight, fontSize: safeFontSize };
-  };
-
-  const rectsOverlapSimple = (a, b) => {
-    if (!a || !b) return false;
-    return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
-  };
-
-  const findNonCollidingTextPos = (x, y, text, fontSize) => {
-    const m = measureTextBlock(text, fontSize);
-    const visible = buildVisibleShapes(getAllEvents());
-    const existingTextRects = visible
-      .filter((s) => (s?.type || '') === 'text')
-      .map((s) => shapeBounds(s))
-      .filter(Boolean);
-
-    const maxAttempts = 200;
-    let cy = y;
-    for (let i = 0; i < maxAttempts; i++) {
-      const candidate = {
-        x: x - 4,
-        y: cy - m.fontSize - 4,
-        w: m.maxW + 8,
-        h: m.blockH + 8,
-      };
-      const collides = existingTextRects.some((r) => rectsOverlapSimple(candidate, r));
-      if (!collides) return { x, y: cy };
-      cy += m.lineHeight;
-    }
-    return null;
   };
 
   const shapeBounds = (shape) => {
@@ -796,7 +669,8 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
       }
       // clear already handled above
     }
-  }, [drawEvents, fallbackLocalEvents, backgroundColor, baseWidth, baseHeight, isDraggingText, selectedText, isMovingSelection, selectedRect, tool, canvasEpoch]); // Re-run when drawEvents/background/size change
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [drawEvents, fallbackLocalEvents, backgroundColor, baseWidth, baseHeight, isDraggingText, selectedText, isMovingSelection, selectedRect, tool]); // Re-run when drawEvents/background/size change
 
   // Canvas size is fixed - no dynamic resizing needed
   // This prevents coordinate drift issues during drawing
@@ -823,9 +697,6 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
       octx.setTransform(ratio, 0, 0, ratio, 0, 0);
       octx.clearRect(0, 0, baseWidth, baseHeight);
     }
-
-    // Force initial redraw
-    setCanvasEpoch((v) => v + 1);
   }, [baseWidth, baseHeight]);
 
   // Update display size for zoom (doesn't affect logical coordinates)
@@ -1450,8 +1321,6 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
 
   // Hover outline for Select tool removed (it looked like an automatic selection rectangle).
 
-  const fontSizePx = lineWidth * 4;
-
   // --- Export Handlers ---
   const safeFilenamePart = (value, fallback) => {
     const v = (value || '').toString().trim();
@@ -1496,28 +1365,12 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
         format: [baseWidth, baseHeight]
       });
       
-      // Export all pages to PDF
-      for (let i = 0; i < pages.length; i++) {
-        if (i > 0) {
-          pdf.addPage([baseWidth, baseHeight], baseWidth >= baseHeight ? 'landscape' : 'portrait');
-        }
-        
-        // If this is the current page, use the canvas directly
-        if (pages[i].id === currentPage) {
-          const canvas = canvasRef.current;
-          const imgData = canvas.toDataURL('image/png');
-          pdf.addImage(imgData, 'PNG', 0, 0, baseWidth, baseHeight);
-        } else {
-          // For other pages, we'd need to render them - for now just add current page
-          // In a full implementation, you'd render each page's events to an offscreen canvas
-          const canvas = canvasRef.current;
-          const imgData = canvas.toDataURL('image/png');
-          pdf.addImage(imgData, 'PNG', 0, 0, baseWidth, baseHeight);
-        }
-      }
+      const canvas = canvasRef.current;
+      const imgData = canvas.toDataURL('image/png');
+      pdf.addImage(imgData, 'PNG', 0, 0, baseWidth, baseHeight);
       
       pdf.save(`${exportBaseName()}.pdf`);
-      toast.success(`Exported ${pages.length} page(s) as PDF!`);
+      toast.success('Exported as PDF!');
     } catch (error) {
       toast.error('Export failed!');
     }
@@ -1530,13 +1383,8 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
 
   // --- Toolbar Handlers ---
   const handleClear = () => {
-    // Clear only current page
     sendDrawEvent({ type: 'clear' });
     if (!hasExternalLocalBuffer) setFallbackLocalEvents([]);
-    // Update page events
-    setPages(prev => prev.map(page => 
-      page.id === currentPage ? { ...page, events: [] } : page
-    ));
     // Clear the visual canvas directly
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -1544,7 +1392,7 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
     // Re-fill background color
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, baseWidth, baseHeight);
-    toast.success(`Page ${currentPage} cleared`);
+    toast.success('Canvas cleared');
   };
 
   const clampZoom = (value) => Math.max(0.5, Math.min(2.5, value));
@@ -1685,37 +1533,6 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
         >
           <FaFileDownload /> PDF
         </button>
-
-        {/* Page Management Controls */}
-        <div className="page-controls">
-          <button 
-            onClick={goToPreviousPage} 
-            disabled={currentPage <= 1}
-            title="Previous Page"
-            className="page-nav-btn"
-          >
-            <FaChevronLeft />
-          </button>
-          <span className="page-indicator">
-            Page {currentPage} / {pages.length}
-          </span>
-          <button 
-            onClick={goToNextPage} 
-            disabled={currentPage >= pages.length}
-            title="Next Page"
-            className="page-nav-btn"
-          >
-            <FaChevronRight />
-          </button>
-          <button 
-            onClick={addPage} 
-            disabled={pages.length >= MAX_PAGES}
-            title="Add New Page"
-            className="add-page-btn"
-          >
-            <FaPlus /> Add Page
-          </button>
-        </div>
       </div>
 
       <div
