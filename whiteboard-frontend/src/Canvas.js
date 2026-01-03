@@ -28,8 +28,8 @@ function Canvas({ drawEvents, sendDrawEvent, previewShape, addLocalDrawEvent, us
   const selectionMoveRef = useRef(null); // { startX, startY, origRect, moved }
 
   // Fixed canvas size - no infinite scrolling to prevent coordinate drift issues
-  const CANVAS_WIDTH = 2400;
-  const CANVAS_HEIGHT = 1600;
+  const CANVAS_WIDTH = 3200;
+  const CANVAS_HEIGHT = 2000;
   const [baseWidth] = useState(CANVAS_WIDTH);
   const [baseHeight] = useState(CANVAS_HEIGHT)
 
